@@ -1,0 +1,28 @@
+<script setup lang="ts">
+import Intro from './../components/home/Intro.vue';
+import CompanyStrengths from '../components/home/CompanyStrengths.vue';
+import Services from '../components/home/Services.vue';
+import ProjectsShow from '../components/home/ProjectsShow.vue';
+import Endorsements from '../../src/components/home/Endorsements.vue'
+import OurClients from '../components/home/OurClients.vue';
+import { onMounted } from 'vue';
+import { onTop } from '../functions/functions';
+import Loading from '../components/Loading.vue';
+
+onMounted(() => {
+    onTop('instant');
+})
+</script>
+
+<template>
+    <Loading>
+    </Loading>
+    <div class="">
+        <Intro></Intro>
+        <CompanyStrengths></CompanyStrengths>
+        <Services></Services>
+        <ProjectsShow></ProjectsShow>
+        <Endorsements></Endorsements>
+        <OurClients></OurClients>
+    </div>
+</template>
