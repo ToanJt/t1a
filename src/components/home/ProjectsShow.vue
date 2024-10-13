@@ -24,8 +24,8 @@ const loadImageDimensions = (imageArray: ImageData[]) => {
         const img = new Image();
         img.src = image.largeURL;
         img.onload = () => {
-            imageArray[index].widthOrigin = img.width * 0.68;
-            imageArray[index].heightOrigin = img.height * 0.68;
+            imageArray[index].widthOrigin = img.width;
+            imageArray[index].heightOrigin = img.height;
         };
     });
 }
@@ -84,7 +84,6 @@ onMounted(() => {
 
                     if (el instanceof HTMLAnchorElement) {
                         pswp.on('change', () => {
-                            console.log('change');
                             const test = pswp?.currSlide?.data.src;
                             el.href = test || '';
                         });
@@ -118,7 +117,7 @@ onMounted(() => {
                     <a v-for="(image, key) in column" :key="key" :href="image.largeURL"
                         :data-pswp-width="image.widthOrigin" :data-pswp-height="image.heightOrigin" target="_blank"
                         rel="noreferrer">
-                        <img class="mb-6" :src="image.thumbnailURL" :alt="image.name || undefined" />
+                        <img loading="lazy" class="mb-6" :src="image.thumbnailURL" :alt="image.name || undefined" />
                     </a>
                 </div>
             </div>

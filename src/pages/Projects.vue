@@ -144,7 +144,7 @@ function activeHandle(optionNumber: number) {
                         <div class="relative project-image cursor-pointer overflow-hidden mb-6"
                             v-for="(image, key) in column" :key="key">
                             <router-link :to="{ name: 'project-details', params: { id: slugify(image.name) } }">
-                                <img class=" transition-all duration-500" :src="image.thumbnailURL"
+                                <img loading="lazy" class=" transition-all duration-500" :src="image.thumbnailURL"
                                     :alt="image.description || undefined" />
                                 <div
                                     class="project-description transition-all duration-500  text-white p-6 bg-vr-light-gray-blur flex flex-col justify-center items-center absolute top-0 left-0 right-0 bottom-0">

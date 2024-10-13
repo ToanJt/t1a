@@ -2,16 +2,33 @@
 import TextParticles from '../threejs/TextParticles.vue';
 import Typed from 'typed.js';
 import { Icon } from '@iconify/vue'
-import { onMounted } from 'vue';
+import { onMounted, reactive } from 'vue';
 import { onTop } from '../functions/functions';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebaseConfig';
 
-onMounted(() => {
+const infomation = reactive({
+    email: '',
+    facebookLink: '',
+    instagramLink: '',
+    whatsappLink: '',
+})
+
+onMounted(async () => {
     new Typed('.auto-type', {
         strings: ['difference.', 'beautiful.', 'trust.'],
         typeSpeed: 130,
         backSpeed: 130,
         loop: true,
     });
+
+    const getInformation = await getDocs(collection(db, 'contacts'));
+    getInformation.forEach((item) => {
+        infomation.email = item.data().email;
+        infomation.facebookLink = item.data().facebook;
+        infomation.instagramLink = item.data().instagram;
+        infomation.whatsappLink = item.data().whatsapp;
+    })
 })
 
 </script>
@@ -67,7 +84,7 @@ onMounted(() => {
                         </p>
                         <p
                             class="hoverable flex items-center cursor-pointer hover:text-white transition-all text-light-dark gap-2">
-                            hello@development.studio
+                            {{ infomation.email }}
                             <span>
                                 <Icon class="text-light-dark" icon="akar-icons:link-out" width="1.2em" height="1.2em" />
                             </span>
@@ -86,12 +103,18 @@ onMounted(() => {
                 <div class="flex justify-between mt-20 ">
                     <p class=" uppercase">2024 TrungTeam®.</p>
                     <ul class="flex gap-4 mr-20">
-                        <Icon class=" cursor-pointer hover:text-blue-600 transition-all" icon="ic:baseline-facebook"
-                            width="2em" height="2em" />
-                        <Icon class=" cursor-pointer hover:text-green-600 transition-all" icon="ic:baseline-whatsapp"
-                            width="2em" height="2em" />
-                        <Icon class=" cursor-pointer hover:text-pink-600 transition-all" icon="dashicons:instagram"
-                            width="2em" height="2em" />
+                        <a :href="infomation.facebookLink">
+                            <Icon class=" cursor-pointer hover:text-blue-600 transition-all" icon="ic:baseline-facebook"
+                                width="2em" height="2em" />
+                        </a>
+                        <a :href="infomation.whatsappLink">
+                            <Icon class=" cursor-pointer hover:text-green-600 transition-all"
+                                icon="ic:baseline-whatsapp" width="2em" height="2em" />
+                        </a>
+                        <a :href="infomation.instagramLink">
+                            <Icon class=" cursor-pointer hover:text-pink-600 transition-all" icon="dashicons:instagram"
+                                width="2em" height="2em" />
+                        </a>
                     </ul>
                 </div>
             </div>

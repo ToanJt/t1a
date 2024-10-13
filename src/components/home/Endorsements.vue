@@ -39,8 +39,10 @@ onMounted(async () => {
                 <SwiperSlide v-for="feedback in feedbacks">
                     <div class="relative grid grid-cols-3 gap-12 mt-24">
                         <div class="pr-4 flex items-center">
-                            <img class=" object-cover col-span-1 rounded-3xl opacity-85" :src="feedback.avatar"
-                                alt="avatar">
+                            <img class=" max-h-[900px] object-cover col-span-1 rounded-3xl opacity-85"
+                                :srcset="`${feedback.avatar}?w=400 400w, ${feedback.avatar}?w=800 800w, ${feedback.avatar}?w=1200 1200w`"
+                                sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
+                                v-lazy="feedback.avatar" loading="lazy" alt="avatar">
                         </div>
                         <div class="col-span-2 my-6 pr-20">
                             <div class="font-[poppins] mb-16 font-light">

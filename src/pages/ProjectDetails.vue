@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { useRouter } from 'vue-router';
-import { defineProps, onMounted, reactive } from 'vue';
+import { defineProps, onMounted, reactive, ref } from 'vue';
 import slugify from 'slugify';
 import { db } from '../firebaseConfig'
 import { collection, getDocs, query } from 'firebase/firestore';
@@ -24,6 +24,7 @@ const router = useRouter();
 const props = defineProps({
     id: String
 })
+const isExistsProject = ref(false);
 
 function goBack() {
     router.back();
@@ -33,6 +34,7 @@ onMounted(async () => {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
         if (slugify(doc.data().name) === props.id) {
+            isExistsProject.value = true;
             projectDetails.name = doc.data().name;
             projectDetails.largeURL = doc.data().largeURL;
             projectDetails.thumbnailURL = doc.data().thumbnailURL;
@@ -48,6 +50,9 @@ onMounted(async () => {
             })
         }
     })
+    if (isExistsProject.value == false) {
+        router.push("/404")
+    }
     onTop('instant');
 })
 
@@ -96,7 +101,7 @@ function getUrl() {
         </ul>
 
         <div v-for="(image, index) in projectDetails.images" :key="index" class="mt-20 grid gap-10">
-            <img :src="image" alt="">
+            <img loading="lazy" :src="image" alt="">
         </div>
         <div class="flex">
             <div @click="goBack()"

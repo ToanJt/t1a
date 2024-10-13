@@ -2,9 +2,10 @@
 import { gsap } from "gsap";
 import Header from "../src/components/Header.vue";
 import Footer from "../src/components/Footer.vue";
-import { onMounted } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { RouterView } from "vue-router";
-import LazyLoading from "./components/LazyLoading.vue";
+import PreLoader from "./components/PreLoader.vue";
+import { useRoute } from "vue-router";
 
 onMounted(() => {
   const $bigBall = document.querySelector(".cursor__ball--big");
@@ -39,11 +40,27 @@ onMounted(() => {
       duration: 0.3,
     });
   }
+  startLoading();
 })
+
+const route = useRoute();
+const isLoading = ref(true);
+const startLoading = () => {
+  isLoading.value = true;
+  setTimeout(() => {
+    isLoading.value = false;
+  }, 1500)
+}
+
+watch(route,
+  () => {
+    startLoading();
+  })
+
 </script>
 
 <template>
-  <div>
+  <div class="">
     <div class="cursor">
       <div class="cursor__ball cursor__ball--big fixed">
         <svg height="30" width="30">
@@ -57,9 +74,20 @@ onMounted(() => {
       </div>
     </div>
     <Header></Header>
-    <LazyLoading>
-      <RouterView></RouterView>
-    </LazyLoading>
-    <Footer></Footer>
+    <!-- <RouterView v-slot="{ Component, route }">
+      <PreLoader :class="{ 'hidden-preloader': !isLoading }">
+      </PreLoader>
+      <component :is="Component" :key="route.path">
+      </component>
+    </RouterView>
+
+    <Footer></Footer> -->
   </div>
 </template>
+
+<style>
+.hidden-preloader {
+  display: none;
+  transition: all .3s linear;
+}
+</style>

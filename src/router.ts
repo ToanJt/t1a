@@ -1,30 +1,39 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "./pages/Home.vue";
-import Projects from "./pages/Projects.vue";
-import About from "../src/pages/About.vue";
-import Contact from "../src/pages/Contact.vue";
-import ProjectDetails from "../src/pages/ProjectDetails.vue";
 
 const routes = [
-  { path: "/", name: "home", component: Home },
+  {
+    path: "/:pathMath(.*)*",
+    name: "NotFound",
+    component: () => import("./pages/NotFound.vue"),
+  },
+  { path: "/", name: "home", component: () => Home },
   {
     path: "/projects",
     children: [
       {
         path: "",
         name: "projects",
-        component: Projects,
+        component: () => import("./pages/Projects.vue"),
       },
       {
         path: ":id",
         name: "project-details",
-        component: ProjectDetails,
+        component: () => import("../src/pages/ProjectDetails.vue"),
         props: true,
       },
     ],
   },
-  { path: "/about", name: "about", component: About },
-  { path: "/contact", name: "contact", component: Contact },
+  {
+    path: "/about",
+    name: "about",
+    component: () => import("../src/pages/About.vue"),
+  },
+  {
+    path: "/contact",
+    name: "contact",
+    component: () => import("../src/pages/Contact.vue"),
+  },
 ];
 
 const router = createRouter({

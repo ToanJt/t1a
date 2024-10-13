@@ -28,6 +28,7 @@ onMounted(async () => {
     })
     onTop('instant');
 })
+
 </script>
 
 <template>
@@ -35,7 +36,7 @@ onMounted(async () => {
         <div class="bg-black ">
             <div class="">
                 <div class="w-screen relative h-[600px]  opacity-15 overflow-hidden ">
-                    <img class="w-full bg-top test" src="../assets/images/aboutus-bg.jpg" alt="">
+                    <img class="w-full bg-top test" src="../assets/images/bg-about.jpg" alt="">
                 </div>
                 <div
                     class="w-1286 mx-auto absolute top-0 left-0 right-0 bottom-40 justify-center text-white flex flex-col items-start mb-24">

@@ -38,23 +38,15 @@ onMounted(() => {
                 <div v-for="(member, index) in members" :key="index"
                     class="border card-team transition-all duration-500 text-black bg-[#FAF6F3] border-solid p-8">
                     <div class="w-full h-72 overflow-hidden">
-                        <img class="w-full h-full object-cover transition-all duration-500" :src="member.avatar" alt="">
+                        <img loading="lazy" class="w-full h-full object-cover transition-all duration-500"
+                            :src="member.avatar" alt="">
                     </div>
                     <div class="flex items-end justify-between">
                         <div class="mt-6">
                             <p class="text-2xl font-headingTest uppercase">{{ member.fullname }}</p>
                             <p class=" font-headingTest font-medium tracking-wider">{{ member.position }}</p>
                         </div>
-                        <ul class="flex gap-4">
-                            <a :href="member.facebookLink" target="_blank">
-                                <Icon class="hoverable" icon="ic:baseline-facebook" width="2em" height="2em"
-                                    style="color: black" />
-                            </a>
-                            <a :href="member.whatsappLink" target="_blank">
-                                <Icon class="hoverable" icon="ic:baseline-whatsapp" width="2em" height="2em"
-                                    style="color: black" />
-                            </a>
-                        </ul>
+
                     </div>
                 </div>
             </div>
