@@ -116,33 +116,40 @@ class CreateParticles {
     let fontSize;
     let areaSize;
     let particleSize;
+    let textContent;
     if (screenWidth > 1280) {
       fontSize = 16;
       areaSize = 250;
       particleSize = 1;
+      textContent = "Our expertise is \nyour advantage.";
     } else if (screenWidth > 1024) {
       fontSize = 12;
       areaSize = 150;
       particleSize = 0.9;
+      textContent = "Our expertise is \nyour advantage.";
     } else if (screenWidth > 768) {
       fontSize = 10;
       areaSize = 80;
       particleSize = 0.8;
+      textContent = "Our expertise\nis your\nadvantage.";
     } else if (screenWidth > 640) {
       fontSize = 8;
       areaSize = 50;
       particleSize = 0.6;
+      textContent = "Our expertise\nis your\nadvantage.";
     } else if (screenWidth > 555) {
-      fontSize = 6;
+      fontSize = 10;
       areaSize = 30;
-      particleSize = 0.3;
+      particleSize = 0.8;
+      textContent = "Our\nexpertise\nis your\nadvantage.";
     } else {
-      fontSize = 5;
-      areaSize = 10;
-      particleSize = 0.1;
+      fontSize = 8;
+      areaSize = 30;
+      particleSize = 0.5;
+      textContent = "Our\nexpertise\nis your\nadvantage.";
     }
     this.data = {
-      text: "Our expertise is \nyour advantage.",
+      text: textContent,
       amount: 1500,
       particleSize: particleSize,
       particleColor: 0xffffff,
