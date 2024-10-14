@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
 import { collection, DocumentData, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import { onMounted, ref } from "vue";
