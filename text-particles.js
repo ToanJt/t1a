@@ -173,9 +173,7 @@ class CreateParticles {
     document.addEventListener("mousedown", this.onMouseDown.bind(this));
     document.addEventListener("mousemove", this.onMouseMove.bind(this));
     document.addEventListener("mouseup", this.onMouseUp.bind(this));
-    document.addEventListener("touchmove", this.onMouseMove.bind(this));
-    document.addEventListener("touchstart", this.onMouseDown.bind(this));
-    document.addEventListener("touchend", this.onMouseUp.bind(this));
+    document.addEventListener("touchmove", this.onTouchMove.bind(this));
   }
 
   onMouseDown() {
@@ -203,6 +201,12 @@ class CreateParticles {
   onMouseMove() {
     this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  }
+
+  onTouchMove(event) {
+    const touch = event.touches[0]; // Get the first touch
+    this.mouse.x = (touch.clientX / window.innerWidth) * 2 - 1;
+    this.mouse.y = -(touch.clientY / window.innerHeight) * 2 + 1;
   }
 
   render(level) {
