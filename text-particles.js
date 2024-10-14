@@ -143,7 +143,7 @@ class CreateParticles {
       particleSize = 0.8;
       textContent = " Our\n expertise\n is your\n advantage.";
     } else {
-      fontSize = 8;
+      fontSize = 6;
       areaSize = 30;
       particleSize = 0.5;
       textContent = " Our\n expertise\n is your\n advantage.";
@@ -216,24 +216,6 @@ class CreateParticles {
     const touch = event.touches[0]; // Get the first touch
     this.mouse.x = (touch.clientX / window.innerWidth) * 2 - 1;
     this.mouse.y = -(touch.clientY / window.innerHeight) * 2 + 1;
-  }
-
-  onTouchDown(event) {
-    const touch = event.touches[0]; // Get the first touch point
-    this.mouse.x = (touch.clientX / window.innerWidth) * 2 - 1;
-    this.mouse.y = -(touch.clientY / window.innerHeight) * 2 + 1;
-
-    const vector = new THREE.Vector3(this.mouse.x, this.mouse.y, 0.5);
-    vector.unproject(this.camera);
-    const dir = vector.sub(this.camera.position).normalize();
-    const distance = -this.camera.position.z / dir.z;
-    this.currenPosition = this.camera.position
-      .clone()
-      .add(dir.multiplyScalar(distance));
-
-    const pos = this.particles.geometry.attributes.position;
-    this.buttom = true;
-    this.data.ease = 0.01;
   }
 
   render(level) {

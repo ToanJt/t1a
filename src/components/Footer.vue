@@ -45,7 +45,7 @@ onMounted(async () => {
                                 class="auto-type underline text-white"></span>
                         </h1>
                     </div>
-                    <div class=" flex sm:flex-row flex-col sm:gap-20 gap-5">
+                    <div class=" col-span-2 flex sm:flex-row flex-col sm:gap-20 gap-5">
                         <ul class=" font-europa-light">
                             <li class="xl:text-2xl md:text-xl sm:text-lg text-2xl sofia-bold sm:mb-8 mb-5">Contact</li>
                             <li class="sm:pb-6 pb-3">

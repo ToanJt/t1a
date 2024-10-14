@@ -30,7 +30,15 @@ const loadImageDimensions = (imageArray: ImageData[]) => {
     });
 }
 
-const columns = 3;
+let columns: number;
+if (window.innerWidth > 1280) {
+    columns = 3;
+} else if (window.innerWidth > 640) {
+    columns = 2;
+}
+else {
+    columns = 1;
+}
 const galleries = computed(() => createGalleries(projects.value, columns));
 
 onMounted(() => {
@@ -106,13 +114,15 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class="">
-        <div class="w-1286 mx-auto container pb-24">
-            <div class="flex flex-col items-center mb-24">
-                <p class="uppercase sofia-pro text-15 tracking-widest mb-5">Let the Magic Begin!</p>
-                <h1 class="text-6xl sofia-medium">Our Latest Creations</h1>
+    <section class="lg:pt-24 pt-16">
+        <div class="container mx-auto px-4 lg:pb-24 md:pb-20 pb-16">
+            <div class="flex flex-col items-center lg:mb-24 sm:mb-16 mb-8">
+                <p class="uppercase sofia-pro sm:text-15 text-[13px] tracking-widest sm:mb-5 mb-2">Let the Magic Begin!
+                </p>
+                <h1 class="xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium">Our Latest Creations
+                </h1>
             </div>
-            <div class="grid grid-cols-3 gap-6">
+            <div class="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
                 <div v-for="(column, index) in galleries" :key="index" class="column col-span-1 gallery">
                     <a v-for="(image, key) in column" :key="key" :href="image.largeURL"
                         :data-pswp-width="image.widthOrigin" :data-pswp-height="image.heightOrigin" target="_blank"

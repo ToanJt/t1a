@@ -87,23 +87,37 @@ onMounted(async () => {
             <SwiperSlide v-for="background in backgrounds">
                 <div>
                     <div class="relative bg-black text-white">
-                        <img class="w-screen h-screen opacity-15" :src="background.image" alt="">
+                        <img class="w-screen h-screen object-cover opacity-15" :src="background.image" alt="">
                         <div
-                            class=" absolute mx-auto flex flex-col justify-center items-start top-0 left-0 right-0 bottom-0 w-1286 ">
-                            <h1 class="gsap-heading sofia-medium text-7xl leading-tight mb-10">{{ background.title }}
+                            class=" absolute mx-auto px-4 flex flex-col justify-center items-start xl:pr-80 lg:pr-40 sm:pr-32 pr-10 top-0 left-0 right-0 bottom-0 container ">
+                            <h1
+                                class="gsap-heading sofia-medium xl:text-7xl lg:text-5xl sm:text-4xl text-2xl leading-tight mb-10">
+                                {{
+                                    background.title }}
                             </h1>
-                            <p class="gsap-text1 font-text mb-4">{{ background.content1 }}</p>
-                            <p v-if="background.content2" class="gsap-text2 font-text mb-4">{{ background.content2 }}
+                            <p
+                                class="gsap-text1 sm:text-left text-justify xl:text-[1rem] lg:text-[15px] sm:text-[14px] text-[12px] mb-4">
+                                {{
+                                    background.content1
+                                }}</p>
+                            <p v-if="background.content2"
+                                class="gsap-text2 sm:text-left text-justify xl:text-[1rem] lg:text-[15px] sm:text-[14px] text-[12px] mb-4">
+                                {{
+                                    background.content2
+                                }}
                             </p>
-                            <p v-if="background.content3" class="gsap-text3 font-text">{{ background.content3 }}</p>
+                            <p v-if="background.content3"
+                                class="gsap-text3 sm:text-left text-justify xl:text-[1rem] lg:text-[15px] sm:text-[14px] text-[12px]">
+                                {{
+                                    background.content3 }}
+                            </p>
                             <button
-                                class="gsap-button hoverable flex items-center gap-1 mt-20 align-middle select-none sofia-bold font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                                class="gsap-button hoverable flex items-center gap-1 xl:mt-20 mt-16 align-middle select-none sofia-bold font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none xl:text-xs md:text-[12px] text-[10px] md:py-3 py-2 lg:px-6 md:px-5 px-4 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
                                 type="button" data-ripple-light="true">
                                 See Project <span>
-                                    <Icon icon="mingcute:right-fill" width="1.5em" height="1.5em"
+                                    <Icon class=" md:text-lg text-base" icon="mingcute:right-fill"
                                         style="color: white" />
                                 </span></button>
-
                         </div>
                     </div>
                 </div>

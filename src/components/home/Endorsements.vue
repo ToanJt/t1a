@@ -33,34 +33,37 @@ onMounted(async () => {
 
 <template>
     <section class="bg-black text-white">
-        <div class="w-1286 ml-96 pt-24 pb-16">
-            <h1 class="text-6xl sofia-medium uppercase">Endorsements</h1>
-            <Swiper pagination loop :modules="module" @swiper="onSwiper">
-                <SwiperSlide v-for="feedback in feedbacks">
-                    <div class="relative grid grid-cols-3 gap-12 mt-24">
-                        <div class="pr-4 flex items-center">
-                            <img class=" max-h-[900px] object-cover col-span-1 rounded-3xl opacity-85"
-                                :srcset="`${feedback.avatar}?w=400 400w, ${feedback.avatar}?w=800 800w, ${feedback.avatar}?w=1200 1200w`"
-                                sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
-                                v-lazy="feedback.avatar" loading="lazy" alt="avatar">
+        <div class="container mx-auto px-4 pt-24 xl:px-24 pb-16">
+            <h1 class="xl:text-6xl lg:text-5xl text-4xl sofia-medium uppercase">Endorsements</h1>
+            <Swiper class="sm:w-auto gap-4 w-svw container mx-auto" pagination loop :modules="module"
+                @swiper="onSwiper">
+                <SwiperSlide class="sm:pr-0 pr-8 " v-for="feedback in feedbacks">
+                    <div class="relative grid sm:grid-cols-3 grid-cols-1 lg:gap-12 gap-2 xl:mt-24 lg:mt-16 mt-8">
+                        <div class="sm:pr-4 pr-0 flex items-center">
+                            <img class="sm:w-auto w-full object-cover col-span-1 rounded-3xl opacity-85"
+                                :src="feedback.avatar" loading="lazy" alt="avatar">
                         </div>
-                        <div class="col-span-2 my-6 pr-20">
-                            <div class="font-[poppins] mb-16 font-light">
-                                <i class="text-6xl mb-2 fa-solid fa-quote-right"></i>
-                                <p class="mb-6 text-[16px]">
+                        <div class="sm:col-span-2 my-6 lg:pr-20">
+                            <div class="font-[poppins] lg:mb-16 mb-8 font-light">
+                                <i class="xl:text-6xl lg:text-5xl text-4xl mb-2 fa-solid fa-quote-right"></i>
+                                <p class="mb-6 sm:text-left text-justify lg:text-15 md:text-[13px] text-[11px]">
                                     {{ feedback.content1 }}
                                 </p>
-                                <p v-if="feedback.content2" class="mb-6 text-[16px]">
+                                <p v-if="feedback.content2"
+                                    class="mb-6 sm:text-left text-justify lg:text-15 md:text-[13px] text-[11px]">
                                     {{ feedback.content2 }}
                                 </p>
-                                <p v-if="feedback.content3" class="text-[16px]">
+                                <p v-if="feedback.content3"
+                                    class="lg:text-15 sm:text-left text-justify md:text-[13px] text-[11px]">
                                     {{ feedback.content3 }}
                                 </p>
                             </div>
                             <div class="font-[poppins] font-light">
-                                <p class=" text-[16px] text-red-500 font-medium mb-1">{{ feedback.customerName }}
+                                <p class=" lg:text-15 md:text-[13px] text-[11px] text-red-500 font-medium mb-1">{{
+                                    feedback.customerName }}
                                 </p>
-                                <p class=" text-[16px]">Construction company in {{ feedback.from }}</p>
+                                <p class=" lg:text-15 md:text-[13px] text-[11px]">Construction company in {{
+                                    feedback.from }}</p>
                             </div>
                         </div>
 

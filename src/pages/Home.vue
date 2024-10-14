@@ -20,6 +20,6 @@ onMounted(() => {
         <Services></Services>
         <ProjectsShow></ProjectsShow>
         <Endorsements></Endorsements>
-        <OurClients></OurClients>
+        <!-- <OurClients></OurClients> -->
     </div>
 </template>

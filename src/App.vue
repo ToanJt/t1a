@@ -74,12 +74,12 @@ watch(route,
       </div>
     </div>
     <Header></Header>
-    <!-- <RouterView v-slot="{ Component, route }">
+    <RouterView v-slot="{ Component, route }">
       <PreLoader :class="{ 'hidden-preloader': !isLoading }">
       </PreLoader>
       <component :is="Component" :key="route.path">
       </component>
-    </RouterView> -->
+    </RouterView>
 
     <Footer></Footer>
   </div>
