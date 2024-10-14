@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Intro from './../components/home/Intro.vue';
+// import Intro from './../components/home/Intro.vue';
 import CompanyStrengths from '../components/home/CompanyStrengths.vue';
 import Services from '../components/home/Services.vue';
 import Endorsements from '../../src/components/home/Endorsements.vue'
