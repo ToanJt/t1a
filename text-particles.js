@@ -173,6 +173,8 @@ class CreateParticles {
     document.addEventListener("mousedown", this.onMouseDown.bind(this));
     document.addEventListener("mousemove", this.onMouseMove.bind(this));
     document.addEventListener("mouseup", this.onMouseUp.bind(this));
+    document.addEventListener("touchstart", this.onMouseUp.bind(this));
+    document.addEventListener("touchend", this.onTouchDown.bind(this));
     document.addEventListener("touchmove", this.onTouchMove.bind(this));
   }
 
@@ -207,6 +209,24 @@ class CreateParticles {
     const touch = event.touches[0]; // Get the first touch
     this.mouse.x = (touch.clientX / window.innerWidth) * 2 - 1;
     this.mouse.y = -(touch.clientY / window.innerHeight) * 2 + 1;
+  }
+
+  onTouchDown(event) {
+    const touch = event.touches[0]; // Get the first touch point
+    this.mouse.x = (touch.clientX / window.innerWidth) * 2 - 1;
+    this.mouse.y = -(touch.clientY / window.innerHeight) * 2 + 1;
+
+    const vector = new THREE.Vector3(this.mouse.x, this.mouse.y, 0.5);
+    vector.unproject(this.camera);
+    const dir = vector.sub(this.camera.position).normalize();
+    const distance = -this.camera.position.z / dir.z;
+    this.currenPosition = this.camera.position
+      .clone()
+      .add(dir.multiplyScalar(distance));
+
+    const pos = this.particles.geometry.attributes.position;
+    this.buttom = true;
+    this.data.ease = 0.01;
   }
 
   render(level) {
