@@ -141,12 +141,12 @@ class CreateParticles {
       fontSize = 10;
       areaSize = 30;
       particleSize = 0.8;
-      textContent = "Our\nexpertise\nis your\nadvantage.";
+      textContent = " Our\n expertise\n is your\n advantage.";
     } else {
       fontSize = 8;
       areaSize = 30;
       particleSize = 0.5;
-      textContent = "Our\nexpertise\nis your\nadvantage.";
+      textContent = " Our\n expertise\n is your\n advantage.";
     }
     this.data = {
       text: textContent,
@@ -180,8 +180,8 @@ class CreateParticles {
     document.addEventListener("mousedown", this.onMouseDown.bind(this));
     document.addEventListener("mousemove", this.onMouseMove.bind(this));
     document.addEventListener("mouseup", this.onMouseUp.bind(this));
-    document.addEventListener("touchstart", this.onMouseUp.bind(this));
-    document.addEventListener("touchend", this.onTouchDown.bind(this));
+    document.addEventListener("touchmove", this.onMouseUp.bind(this));
+    document.addEventListener("touchmove", this.onMouseDown.bind(this));
     document.addEventListener("touchmove", this.onTouchMove.bind(this));
   }
 
