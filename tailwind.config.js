@@ -39,6 +39,7 @@ export default {
         ],
       },
       fontSize: {
+        ssm: "12px",
         15: "15px",
         17: "17px",
         19: "19px",
@@ -53,6 +54,9 @@ export default {
         "input-color": "#383838",
         "light-dark": "rgb(153, 153, 153)",
         dark: "rgb(51, 51, 51)",
+      },
+      screens: {
+        ssm: "425px",
       },
     },
   },

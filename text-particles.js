@@ -93,6 +93,9 @@ class Environment {
   }
 }
 
+// =================================
+
+// ===============================
 class CreateParticles {
   constructor(scene, font, particleImg, camera, renderer) {
     this.scene = scene;
@@ -108,13 +111,43 @@ class CreateParticles {
 
     this.buttom = false;
 
+    // Responsive
+    const screenWidth = window.innerWidth;
+    let fontSize;
+    let areaSize;
+    let particleSize;
+    if (screenWidth > 1280) {
+      fontSize = 16;
+      areaSize = 250;
+      particleSize = 1;
+    } else if (screenWidth > 1024) {
+      fontSize = 12;
+      areaSize = 150;
+      particleSize = 0.9;
+    } else if (screenWidth > 768) {
+      fontSize = 10;
+      areaSize = 80;
+      particleSize = 0.8;
+    } else if (screenWidth > 640) {
+      fontSize = 8;
+      areaSize = 50;
+      particleSize = 0.6;
+    } else if (screenWidth > 555) {
+      fontSize = 6;
+      areaSize = 30;
+      particleSize = 0.3;
+    } else {
+      fontSize = 5;
+      areaSize = 10;
+      particleSize = 0.1;
+    }
     this.data = {
       text: "Our expertise is \nyour advantage.",
       amount: 1500,
-      particleSize: 1,
+      particleSize: particleSize,
       particleColor: 0xffffff,
-      textSize: 16,
-      area: 250,
+      textSize: fontSize,
+      area: areaSize,
       ease: 0.05,
     };
 

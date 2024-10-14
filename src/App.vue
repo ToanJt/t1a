@@ -79,9 +79,9 @@ watch(route,
       </PreLoader>
       <component :is="Component" :key="route.path">
       </component>
-    </RouterView>
+    </RouterView> -->
 
-    <Footer></Footer> -->
+    <Footer></Footer>
   </div>
 </template>
 

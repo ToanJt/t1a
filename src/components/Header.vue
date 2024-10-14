@@ -1,12 +1,106 @@
+<script setup lang="ts">
+import { onMounted, ref, watch } from 'vue';
+import gsap from 'gsap';
+import { Icon } from '@iconify/vue'
+
+const isActiveNavbar = ref(false);
+
+const activeHandle = () => {
+    isActiveNavbar.value = !isActiveNavbar.value;
+}
+
+const setDefaultAnimation = () => {
+    gsap.timeline().set('.item', {
+        x: -100,
+        opacity: 0,
+    }).set('.item-right1', {
+        x: 200,
+        opacity: 0,
+    }).set('.item-right2', {
+        x: 250,
+        opacity: 0,
+    })
+}
+
+watch(isActiveNavbar, () => {
+    setDefaultAnimation();
+    if (isActiveNavbar.value) {
+        gsap.timeline().to('.item', {
+            opacity: 1,
+            x: 0,
+            duration: 0.25,
+            stagger: 0.25
+        }, '+=0.25')
+            .to(['.item-right1'], {
+                opacity: 1,
+                x: 0,
+                delay: 1,
+                duration: 0.5,
+                stagger: 0.25
+            }, '-=0.75')
+            .to(['.item-right2'], {
+                opacity: 1,
+                x: 0,
+                delay: 0.25,
+                duration: 0.5,
+                stagger: 0.25
+            }, '-=0.25')
+    }
+})
+
+onMounted(() => {
+    setDefaultAnimation();
+})
+</script>
 <template>
     <div
-        class="fixed mix-blend-exclusion  text-white z-10 top-0 left-0 right-0 container mx-auto h-28 flex items-center justify-between">
+        class="fixed px-4 mix-blend-exclusion text-white z-10 top-0 left-0 right-0 container mx-auto h-28 flex items-center justify-between">
         <h1 class="font-roboto text-6xl">T1A</h1>
-        <div class="flex gap-8 text-xl font-heading">
+        <div @click="activeHandle()" class="lg:hidden flex relative">
+            <i class="text-2xl fa-solid fa-bars"></i>
+        </div>
+        <div class="lg:flex hidden gap-8 text-xl font-heading">
             <router-link to="/">Home</router-link>
             <router-link to="/projects">Projects</router-link>
             <router-link to="/about">About Us</router-link>
             <router-link to="/contact">Contact</router-link>
+        </div>
+    </div>
+    <div :class="{ '!flex': isActiveNavbar }"
+        class="bg-black px-4 hidden lg:!hidden items-center fixed left-0 right-0 top-0 bottom-0">
+        <div class="container mx-auto grid md:grid-cols-5 text-white">
+            <div class="px-4 md:col-span-3 h-screen flex flex-col justify-center">
+                <div class="flex flex-col gap-8 text-xl font-heading">
+                    <router-link class="item text-xl" to="/">Home</router-link>
+                    <router-link class="item text-xl" to="/projects">Projects</router-link>
+                    <router-link class="item text-xl" to="/about">About Us</router-link>
+                    <router-link class="item text-xl" to="/contact">Contact</router-link>
+                </div>
+            </div>
+            <div
+                class="md:col-span-2 border-l border-zinc-600 border-solid md:flex hidden flex-col justify-center gap-8 pl-8">
+                <div>
+                    <p class="item-right1 text-xl mb-2 text-[#727272]">Contact Us via</p>
+                    <div class="flex item-right2 gap-1 items-center">
+                        <p class=" text-2xl">trungle@gmail.com</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="item-right1 text-xl mb-2 text-[#727272]">Have an Idea?</p>
+                    <div class="flex item-right2 gap-2 items-center">
+                        <p class=" text-2xl">Send it to Us</p>
+                        <Icon icon="lucide:move-right" width="2em" height="2em" style="color: white" />
+                    </div>
+                </div>
+                <div>
+                    <p class="item-right1 text-xl mb-2 text-[#727272]">Want to see more?</p>
+                    <div class="flex item-right2 gap-2 items-center">
+                        <router-link class=" text-2xl !text-white" to="/projects">Go to
+                            Portfolio</router-link>
+                        <Icon icon="lucide:move-right" width="2em" height="2em" style="color: white" />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>

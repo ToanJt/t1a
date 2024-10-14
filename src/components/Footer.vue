@@ -35,51 +35,72 @@ onMounted(async () => {
 
 
 <template>
-    <div>
-        <TextParticles></TextParticles>
-        <section class="bg-black text-white pb-16 pt-8 w-screen">
-            <div class="mx-auto container">
-                <div class="grid grid-cols-5 gap-40">
+    <div class="container">
+        <TextParticles class="w-screen"></TextParticles>
+        <section class="bg-black text-white lg:pb-16 md:pb-10 pb-6 pt-8 w-screen">
+            <div class="mx-auto container px-4">
+                <div class="grid lg:grid-cols-5 grid-cols-1 lg:gap-40 gap-20">
                     <div class=" col-span-3">
-                        <h1 class="text-8xl font-heading text-dark">We make <br>a <span
+                        <h1 class="xl:text-8xl md:text-6xl text-5xl font-heading text-dark">We make <br>a <span
                                 class="auto-type underline text-white"></span>
                         </h1>
                     </div>
-                    <div class=" col-span-2 flex gap-28">
-                        <ul class=" font-europa-light text-xl">
-                            <li class="text-2xl sofia-bold mb-8">Contact</li>
-                            <li class="pb-6">Email Us</li>
-                            <li class="pb-6">Careers</li>
-                            <li class="pb-6">About Us</li>
+                    <div class=" flex sm:flex-row flex-col sm:gap-20 gap-5">
+                        <ul class=" font-europa-light">
+                            <li class="xl:text-2xl md:text-xl sm:text-lg text-2xl sofia-bold sm:mb-8 mb-5">Contact</li>
+                            <li class="sm:pb-6 pb-3">
+                                <router-link to="/about">
+                                    <p class="xl:text-xl md:text-lg sm:text-md text-xl">About Us</p>
+                                </router-link>
+                            </li>
+                            <li class="sm:pb-6 pb-3">
+                                <router-link to="/contact">
+                                    <p class="xl:text-xl md:text-lg sm:text-md text-xl">Email Us</p>
+                                </router-link>
+                            </li>
+                            <li class="sm:pb-6 pb-3">
+                                <router-link to="/contact">
+                                    <p class="xl:text-xl md:text-lg sm:text-md text-xl">Call Us</p>
+                                </router-link>
+                            </li>
                         </ul>
-                        <ul class=" font-europa-light text-xl">
-                            <li class="text-2xl sofia-bold mb-8">Contact</li>
-                            <li class="pb-6">Email Us</li>
-                            <li class="pb-6">Careers</li>
-                            <li class="pb-6">About Us</li>
+                        <ul class=" font-europa-light">
+                            <li class="xl:text-2xl md:text-xl sm:text-lg text-2xl sofia-bold sm:mb-8 mb-5">Our Projects
+                            </li>
+                            <li class="sm:pb-6 pb-3">
+                                <router-link to="/projects">
+                                    <p class="xl:text-xl md:text-lg sm:text-md text-xl">Interior</p>
+                                </router-link>
+                            </li>
+                            <li class="sm:pb-6 pb-3">
+                                <router-link to="/projects">
+                                    <p class="xl:text-xl md:text-lg sm:text-md text-xl">Exterior</p>
+                                </router-link>
+                            </li>
                         </ul>
                     </div>
                 </div>
-                <div class="grid grid-cols-5 gap-40 mt-20">
+                <div class="grid lg:grid-cols-5 grid-cols-1 lg:gap-40 gap-6 lg:mt-20 md:mt-10 mt-6">
                     <div class=" col-span-3 sofia-light">
-                        <p class="mb-4 sofia-pro">Send for Us</p>
-                        <div class=" flex mb-8">
-                            <input class="bg-white w-80 px-4 outline-none text-black" placeholder="Your Email Address"
-                                type="email">
-                            <div class="p-2 bg-white">
+                        <p class="md:mb-4 mb-2 sofia-pro">Send for Us</p>
+                        <div class=" flex lg:mb-8 md:mb-5 mb-2">
+                            <input class="bg-white lg:text-[1rem] text-sm w-80 md:px-4 px-3 outline-none text-black"
+                                placeholder="Your Email Address" type="email">
+                            <div class="sm:p-2 p-1 bg-white">
                                 <button
-                                    class="bg-black hover:scale-[0.9] text-white transition-all duration-500 border-black border-solid border-[1px] sofia-pro uppercase px-4 py-3 w-40">Send
+                                    class="bg-black lg:text-[1rem] text-sm hover:scale-[0.9] text-white transition-all duration-500 border-black border-solid border-[1px] sofia-pro uppercase md:px-4 px-2 py-3 md:w-40 w-32">Send
                                     For Us</button>
                             </div>
                         </div>
-                        <p class="text-sm text-light-dark ">Shape stunning interiors and exteriors with the Flowbase
+                        <p class="text-sm sm:block hidden text-light-dark ">Shape stunning interiors and exteriors with
+                            the Flowbase
                             team.<br> Fresh
                             ideas
                             delivered to your
                             inbox today.</p>
                     </div>
-                    <div class="col-span-2">
-                        <p class="text-2xl sofia-bold mb-4">
+                    <div class="sm:block hidden col-span-2">
+                        <p class="xl:text-2xl lg:text-xl text-md sofia-bold lg:mb-4 mb-1">
                             Get in touch
                         </p>
                         <p
@@ -91,29 +112,32 @@ onMounted(async () => {
                         </p>
                     </div>
                 </div>
-                <div class="flex justify-center items-center mt-20">
+                <div class="sm:flex hidden justify-center items-center lg:mt-20 mt-8">
                     <div class="bg-dark h-[1px] w-full"></div>
                     <div @click="onTop('smooth')"
                         class="hoverable flex justify-center items-start w-80 gap-2 text-light-dark hover:cursor-pointer">
-                        <p>Scroll to Top</p>
-                        <Icon icon="solar:arrow-to-top-left-bold" width="1.5em" height="1.5em" />
+                        <p class="lg:text-[1rem] text-sm">Scroll to Top</p>
+                        <Icon class="lg:text-xl text-lg" icon="solar:arrow-to-top-left-bold" />
                     </div>
-                    <div class="bg-dark h-[1px] w-full"></div>
+                    <div class=" bg-dark h-[1px] w-full"></div>
                 </div>
-                <div class="flex justify-between mt-20 ">
-                    <p class=" uppercase">2024 TrungTeam®.</p>
-                    <ul class="flex gap-4 mr-20">
+                <div class="flex justify-between mt-8">
+                    <p class="lg:text-[1rem] text-sm uppercase">2024 TrungTeam®.</p>
+                    <ul class="flex gap-4 xl:mr-20 mr-0">
                         <a :href="infomation.facebookLink">
-                            <Icon class=" cursor-pointer hover:text-blue-600 transition-all" icon="ic:baseline-facebook"
-                                width="2em" height="2em" />
+                            <Icon
+                                class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-blue-600 transition-all"
+                                icon="ic:baseline-facebook" />
                         </a>
                         <a :href="infomation.whatsappLink">
-                            <Icon class=" cursor-pointer hover:text-green-600 transition-all"
-                                icon="ic:baseline-whatsapp" width="2em" height="2em" />
+                            <Icon
+                                class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-green-600 transition-all"
+                                icon="ic:baseline-whatsapp" />
                         </a>
                         <a :href="infomation.instagramLink">
-                            <Icon class=" cursor-pointer hover:text-pink-600 transition-all" icon="dashicons:instagram"
-                                width="2em" height="2em" />
+                            <Icon
+                                class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-pink-600 transition-all"
+                                icon="dashicons:instagram" />
                         </a>
                     </ul>
                 </div>
