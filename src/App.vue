@@ -80,7 +80,6 @@ watch(route,
       <component :is="Component" :key="route.path">
       </component>
     </RouterView>
-
     <Footer></Footer>
   </div>
 </template>
