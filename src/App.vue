@@ -3,8 +3,8 @@ import { gsap } from "gsap";
 import Header from "../src/components/Header.vue";
 import Footer from "../src/components/Footer.vue";
 import { onMounted, ref, watch } from "vue";
-// import { RouterView } from "vue-router";
-// import PreLoader from "./components/PreLoader.vue";
+import { RouterView } from "vue-router";
+import PreLoader from "./components/PreLoader.vue";
 import { useRoute } from "vue-router";
 
 onMounted(() => {
