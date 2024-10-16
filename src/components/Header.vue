@@ -2,8 +2,10 @@
 import { onMounted, ref, watch } from 'vue';
 import gsap from 'gsap';
 import { Icon } from '@iconify/vue'
+import { useRoute } from 'vue-router';
 
 const isActiveNavbar = ref(false);
+const route = useRoute();
 
 const activeHandle = () => {
     isActiveNavbar.value = !isActiveNavbar.value;
@@ -21,6 +23,10 @@ const setDefaultAnimation = () => {
         opacity: 0,
     })
 }
+
+watch(route, () => {
+    isActiveNavbar.value = false;
+})
 
 watch(isActiveNavbar, () => {
     setDefaultAnimation();

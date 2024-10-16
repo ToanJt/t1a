@@ -32,18 +32,18 @@ onMounted(async () => {
 </script>
 
 <template>
-    <section class="bg-black text-white">
-        <div class="container mx-auto px-4 pt-24 xl:px-24 pb-16">
+    <section class="bg-black  text-white">
+        <div class="container mx-auto overflow-hidden px-4 pt-24 xl:px-24 pb-16">
             <h1 class="xl:text-6xl lg:text-5xl text-4xl sofia-medium uppercase">Endorsements</h1>
-            <Swiper class="sm:w-auto gap-4 w-svw container mx-auto" pagination loop :modules="module"
-                @swiper="onSwiper">
-                <SwiperSlide class="sm:pr-0 pr-8 " v-for="feedback in feedbacks">
+            <Swiper center class="sm:w-auto gap-4 w-[calc(100vw-2rem)] container mx-auto" pagination loop
+                :modules="module" @swiper="onSwiper">
+                <SwiperSlide class="sm:pr-0 ssm:pr-8 pr-0" v-for="feedback in feedbacks">
                     <div class="relative grid sm:grid-cols-3 grid-cols-1 lg:gap-12 gap-2 xl:mt-24 lg:mt-16 mt-8">
-                        <div class="sm:pr-4 pr-0 flex items-center">
-                            <img class="sm:w-auto w-full object-cover col-span-1 rounded-3xl opacity-85"
+                        <div class=" flex items-center">
+                            <img class="sm:w-auto w-[calc(100%-2rem)] object-cover col-span-1 rounded-3xl opacity-85"
                                 :src="feedback.avatar" loading="lazy" alt="avatar">
                         </div>
-                        <div class="sm:col-span-2 my-6 lg:pr-20">
+                        <div class="sm:col-span-2 my-6 lg:pr-20 pr-4">
                             <div class="font-[poppins] lg:mb-16 mb-8 font-light">
                                 <i class="xl:text-6xl lg:text-5xl text-4xl mb-2 fa-solid fa-quote-right"></i>
                                 <p class="mb-6 sm:text-left text-justify lg:text-15 md:text-[13px] text-[11px]">

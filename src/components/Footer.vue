@@ -119,7 +119,7 @@ onMounted(async () => {
                         <p class="lg:text-[1rem] text-sm">Scroll to Top</p>
                         <Icon class="lg:text-xl text-lg" icon="solar:arrow-to-top-left-bold" />
                     </div>
-                    <div class=" bg-dark h-[1px] w-full"></div>
+                    <div class="bg-dark h-[1px] w-full"></div>
                 </div>
                 <div class="flex justify-between mt-8">
                     <p class="lg:text-[1rem] text-sm uppercase">2024 TrungTeam®.</p>

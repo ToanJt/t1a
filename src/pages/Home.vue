@@ -4,7 +4,7 @@ import CompanyStrengths from '../components/home/CompanyStrengths.vue';
 import Services from '../components/home/Services.vue';
 import Endorsements from '../../src/components/home/Endorsements.vue'
 import ProjectsShow from '../components/home/ProjectsShow.vue';
-// import OurClients from '../components/home/OurClients.vue';
+import OurClients from '../components/home/OurClients.vue';
 import { onMounted } from 'vue';
 import { onTop } from '../functions/functions';
 
@@ -20,6 +20,6 @@ onMounted(() => {
         <Services></Services>
         <ProjectsShow></ProjectsShow>
         <Endorsements></Endorsements>
-        <!-- <OurClients></OurClients> -->
+        <OurClients></OurClients>
     </div>
 </template>

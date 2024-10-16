@@ -40,13 +40,26 @@ else {
     columns = 1;
 }
 const galleries = computed(() => createGalleries(projects.value, columns));
-
+let top: number;
+let right: number;
+let bottom: number;
+let left: number;
 onMounted(() => {
+
+    if (window.innerWidth > 768) {
+        top = right = bottom = left = 100;
+    } else if (window.innerWidth > 640) {
+        top = right = bottom = left = 60;
+    } else if (window.innerWidth > 520) {
+        top = right = bottom = left = 30;
+    } else {
+        top = right = bottom = left = 10;
+    }
     if (!lightbox) {
         lightbox = new PhotoSwipeLightbox({
             gallery: '.gallery',
             children: 'a',
-            padding: { top: 100, bottom: 100, left: 100, right: 100 },
+            padding: { top: top, bottom: bottom, left: left, right: right },
             pswpModule: () => import('photoswipe'),
         });
         lightbox.on('uiRegister', function () {
@@ -158,6 +171,18 @@ onMounted(() => {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
+}
+
+@media screen and (max-width: 1024px) {
+    .pswp__custom-caption {
+        bottom: 120px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pswp__custom-caption {
+        bottom: 130px;
+    }
 }
 
 .pswp__custom-caption a {

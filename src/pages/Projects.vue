@@ -27,8 +27,16 @@ onMounted(async () => {
     onTop('instant');
 })
 
+let columns: number;
+if (window.innerWidth > 1280) {
+    columns = 3;
+} else if (window.innerWidth > 640) {
+    columns = 2;
+}
+else {
+    columns = 1;
+}
 // Hàm để chia các ảnh thành các cột
-const columns = 3;
 const galleries = computed<Array<Array<ImageData>>>(() => {
     const projectData: DocumentData[] = showProjectOption(currentOption.value);
     const imageDataArray: ImageData[] = projectData.map((docData) => convertToImageData(docData));
@@ -101,13 +109,20 @@ function activeHandle(optionNumber: number) {
     <div>
         <div class="bg-black ">
             <div class="">
-                <div class="w-screen relative h-[600px]  opacity-15 overflow-hidden ">
-                    <img class="w-full bg-top test" src="../assets/images/projects-bg.jpg" alt="">
+                <div class="w-screen relative lg:h-[600px] md:h-[500px] h-[400px] opacity-15 overflow-hidden ">
+                    <img class="w-full h-full bg-top object-cover" src="../assets/images/projects-bg.jpg" alt="">
                 </div>
                 <div
-                    class="w-1286 mx-auto absolute top-0 left-0 right-0 bottom-40 justify-center text-white flex flex-col items-start mb-24">
-                    <h1 class="text-8xl sofia-medium uppercase mb-20">Portfolio</h1>
-                    <p class="w-2/3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur ducimus,
+                    class="container mx-auto md:px-20 px-4 absolute top-0 left-0 right-0 fix-firstScreen md:bottom-40 sm:bottom-60 ssm:bottom-80 bottom-[30vh] justify-center text-white flex flex-col items-start mb-24">
+                    <h1
+                        class="xl:text-8xl lg:text-6xl md:text-5xl sm:text-4xl text-3xl sofia-medium uppercase xl:mb-20 sm:mb-10 mb-5">
+                        Portfolio</h1>
+                    <p class="md:w-2/3 xl:text-base lg:text-15 sm:text-sm text-[12px]">Lorem ipsum, dolor sit amet
+                        consectetur
+                        adipisicing
+                        elit.
+                        Tenetur
+                        ducimus,
                         perspiciatis nobis
                         cupiditate maxime deserunt? Qui error, quos rem placeat omnis quasi sit ratione vel voluptas
                         saepe
@@ -115,13 +130,16 @@ function activeHandle(optionNumber: number) {
                 </div>
             </div>
         </div>
-        <div class="bg-vr-light-gray">
-            <div class="w-full mx-auto px-40 pt-24 pb-36">
+        <div class="bg-vr-light-gray ">
+            <div class="container mx-auto md:px-20 px-4 lg:pt-24 pt-16 lg:pb-36 pb-20">
                 <div class="flex flex-col items-center">
-                    <h1 class="text-6xl sofia-medium mb-5">Our Latest Articles & Resources</h1>
-                    <p class="uppercase sofia-pro text-15 tracking-widest">
+                    <h1 class="xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium sm:mb-5 mb-2">Our
+                        Latest
+                        Articles & Resources</h1>
+                    <p class="uppercase text-center sofia-pro sm:text-15 text-[13px] tracking-widest">
                         Design Matters: Exploring the Impact of Architecture on Our Lives</p>
-                    <ul class="flex gap-12 text-2xl pb-6 mt-24 border-b border-solid uppercase text-zinc-500">
+                    <ul
+                        class="flex flex-wrap xl:gap-x-12 gap-x-10 gap-y-2 justify-center xl:text-2xl lg:text-xl md:text-lg text-sm lg:pb-6 pb-3 xl:mt-24 lg:mt-16 mt-8 border-b border-solid uppercase text-zinc-500">
                         <li @click="activeHandle(0)" :class="{ 'activeOption': isActive[0] }"
                             class="hover:text-black transition-colors duration-500 cursor-pointer ">
                             All</li>
@@ -139,7 +157,7 @@ function activeHandle(optionNumber: number) {
                             class="hover:text-black transition-colors duration-500 cursor-pointer">Large</li>
                     </ul>
                 </div>
-                <div class="grid grid-cols-3 gap-6 mt-20">
+                <div class="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 lg:mt-20 md:mt-16 mt-8">
                     <div v-for="(column, index) in galleries" :key="index" class="column col-span-1 gallery">
                         <div class="relative project-image cursor-pointer overflow-hidden mb-6"
                             v-for="(image, key) in column" :key="key">
@@ -166,18 +184,23 @@ function activeHandle(optionNumber: number) {
                         </div>
                     </div>
                 </div>
-                <div class="bg-black mt-20 text-white flex gap-60">
-                    <img class="mt-24 w-96 h-96 object-cover" src="../assets/images/bg-contact.jpg" alt="">
-                    <div class="mt-24">
-                        <h1 class="text-5xl sofia-medium mb-5">Our Latest Articles & Resources</h1>
-                        <p class="uppercase sofia-pro text-15 tracking-widest">
+                <div
+                    class="bg-black lg:mt-20 md:mt-10 mt-2 lg:static relative text-white flex xl:gap-32 lg:gap-16 gap-8">
+                    <img class="lg:mt-24 lg:opacity-100 opacity-30 mt-0 lg:static absolute left-0 right-0 top-0 bottom-0 xl:w-96 lg:w-60 w-full xl:h-96 lg:h-[21rem] h-full object-cover"
+                        src="../assets/images/bg-contact.jpg" alt="">
+                    <div class="lg:mt-24 p-8 lg:static relative">
+                        <h1
+                            class="text-left lg:mr-4 mr-0 xl:text-6xl lg:text-5xl sm:text-4xl text-2xl sofia-medium sm:mb-5 mb-25">
+                            Our Latest Articles & Resources</h1>
+                        <p class="uppercase lg:mr-4 mr-0 text-left sofia-pro sm:text-15 text-[13px] tracking-widest">
                             Design Matters: Exploring the Impact of Architecture on Our Lives</p>
-                        <div class=" flex mb-8 mt-20">
-                            <input class="bg-white w-80 px-4 outline-none text-black" placeholder="Your Email Address"
-                                type="email">
-                            <div class="p-2 bg-white">
+                        <div class=" flex mt-20 lg:mr-4 mr-0 lg:mb-8 md:mb-5 mb-2">
+                            <input
+                                class="bg-white lg:text-[1rem] text-sm xl:w-80 w-full md:px-4 px-3 outline-none text-black"
+                                placeholder="Your Email Address" type="email">
+                            <div class="sm:p-2 p-1 bg-white">
                                 <button
-                                    class="bg-black hover:scale-[0.9] text-white transition-all duration-500 border-black border-solid border-[1px] sofia-pro uppercase px-4 py-3 w-40">Send
+                                    class="bg-black lg:text-[1rem] sm:text-sm text-[12px] hover:scale-[0.9] text-white transition-all duration-500 border-black border-solid border-[1px] sofia-pro uppercase md:px-4 px-2 md:py-3 py-2 md:w-40 w-32">Send
                                     For Us</button>
                             </div>
                         </div>
