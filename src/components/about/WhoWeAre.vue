@@ -33,8 +33,8 @@
                     provident voluptatum porro! Suscipit explicabo voluptas porro incidunt fugiat tempore?</p>
             </div>
             <div class="grid grid-cols-2 p-12 gap-4">
-                <img class="object-cover h-full" src="../../assets/images/about/story1.jpg" alt="">
-                <img class="object-cover h-full" src="../../assets/images/about/story2.jpg" alt="">
+                <img class="object-cover md:h-full h-80" src="../../assets/images/about/story1.jpg" alt="">
+                <img class="object-cover md:h-full h-80" src="../../assets/images/about/story2.jpg" alt="">
             </div>
         </div>
     </div>
