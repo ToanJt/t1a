@@ -1,34 +1,41 @@
 <template>
-    <div class="w-1286 mx-auto mb-24">
-        <div class="bg-black mt-20 pb-12 pr-4 text-white grid grid-cols-2">
-            <div></div>
-            <div class="mt-12">
-                <h1 class="text-5xl sofia-medium mb-5 u uppercase">who we are
+    <div class="px-4">
+        <div class="container mx-auto lg:mb-24 mb-16">
+            <div class="bg-black lg:mt-20 mt-16 pb-12 pr-4 md:pl-0 pl-12 text-white grid md:grid-cols-2 grid-cols-1">
+                <div class="md:block hidden"></div>
+                <div class="mt-12 ">
+                    <h1 class="md:text-5xl sm:text-4xl text-3xl sofia-medium mb-5 uppercase">who we are
+                    </h1>
+                    <p
+                        class="xl:text-base lg:text-15 sm:text-sm text-[12px] sm:text-left text-justify font-europa-light pr-8">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ducimus voluptates
+                        architecto, sit eaque exercitationem adipisci rerum consequuntur necessitatibus quibusdam
+                        provident voluptatum porro! Suscipit explicabo voluptas porro incidunt fugiat tempore?</p>
+                </div>
+            </div>
+            <div class=" grid md:grid-cols-3 grid-cols-1 gap-8">
+                <img class="md:-mt-40 mt-8 md:w-96 w-60 object-cover" src="../../assets/images/about/image-13.jpg"
+                    alt="">
+                <img class=" justify-self-center lg:mt-24 md:mt-12 mt-0 md:w-96 w-60 object-cover"
+                    src="../../assets/images/about/image-23.jpg" alt="">
+                <img class=" justify-self-end lg:mt-60 md:mt-32 mt-0 md:w-96 w-60 object-cover"
+                    src="../../assets/images/about/image-21.jpg" alt="">
+            </div>
+        </div>
+        <div class="bg-black container mx-auto text-white grid lg:grid-cols-2 grid-cols-1 lg:pt-0 pt-12 lg:mb-24 mb-16">
+            <div class=" self-center lg:pr-12 pl-12 pr-0">
+                <h1 class="md:text-5xl sm:text-4xl text-3xl sofia-medium mb-5 uppercase">our story
                 </h1>
-                <p class="text-lg font-europa-light pr-8">
+                <p
+                    class="xl:text-base lg:text-15 sm:text-sm text-[12px] sm:text-left text-justify font-europa-light pr-12">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ducimus voluptates
                     architecto, sit eaque exercitationem adipisci rerum consequuntur necessitatibus quibusdam
                     provident voluptatum porro! Suscipit explicabo voluptas porro incidunt fugiat tempore?</p>
             </div>
-        </div>
-        <div class=" grid grid-cols-3 gap-8">
-            <img class=" -mt-40 w-96 object-cover" src="../../assets/images/about/image-13.jpg" alt="">
-            <img class=" mt-24 w-96 object-cover" src="../../assets/images/about/image-23.jpg" alt="">
-            <img class=" mt-60 w-96 object-cover" src="../../assets/images/about/image-21.jpg" alt="">
-        </div>
-    </div>
-    <div class="bg-black w-1286 mx-auto text-white grid grid-cols-2 mb-24">
-        <div class="mt-24 px-16">
-            <h1 class="text-5xl sofia-medium mb-5 uppercase">our story
-            </h1>
-            <p class="text-lg font-europa-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ducimus voluptates
-                architecto, sit eaque exercitationem adipisci rerum consequuntur necessitatibus quibusdam
-                provident voluptatum porro! Suscipit explicabo voluptas porro incidunt fugiat tempore?</p>
-        </div>
-        <div class="grid grid-cols-2 p-10 gap-4">
-            <img class="object-cover" src="../../assets/images/about/story1.jpg" alt="">
-            <img class="object-cover h-full" src="../../assets/images/about/story2.jpg" alt="">
+            <div class="grid grid-cols-2 p-12 gap-4">
+                <img class="object-cover h-full" src="../../assets/images/about/story1.jpg" alt="">
+                <img class="object-cover h-full" src="../../assets/images/about/story2.jpg" alt="">
+            </div>
         </div>
     </div>
 </template>

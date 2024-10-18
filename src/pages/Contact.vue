@@ -35,78 +35,92 @@ onMounted(async () => {
     <div>
         <div class="bg-black ">
             <div class="">
-                <div class="w-screen relative h-[600px]  opacity-15 overflow-hidden ">
-                    <img class="w-full bg-top test" src="../assets/images/bg-about.jpg" alt="">
+                <div class="w-screen relative lg:h-[600px] md:h-[500px] h-[400px] opacity-15 overflow-hidden ">
+                    <img class="w-full h-full bg-top object-cover" src="../assets/images/bg-about.jpg" alt="">
                 </div>
                 <div
-                    class="w-1286 mx-auto absolute top-0 left-0 right-0 bottom-40 justify-center text-white flex flex-col items-start mb-24">
-                    <h1 class="text-8xl sofia-medium uppercase mb-20">Contact</h1>
+                    class="container mx-auto md:px-20 px-4 absolute top-0 left-0 right-0 fix-firstScreen md:bottom-40 sm:bottom-60 ssm:bottom-80 bottom-[30vh] justify-center text-white flex flex-col items-start mb-24">
+                    <h1
+                        class="xl:text-8xl lg:text-6xl md:text-5xl sm:text-4xl text-3xl sofia-medium uppercase xl:mb-20 sm:mb-10 mb-5">
+                        Contact</h1>
                     <ul class="flex gap-6 text-2xl pb-6">
-                        <a class="text-2xl" :href="contact.facebookLink" target="_blank">
-                            <Icon class="hoverable cursor-pointer hover:text-blue-600 transition-all"
-                                icon="ic:baseline-facebook" width="1.5em" height="1.5em" />
+                        <a :href="contact.facebookLink">
+                            <Icon
+                                class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-blue-600 transition-all"
+                                icon="ic:baseline-facebook" />
                         </a>
-                        <a class="text-2xl" :href="contact.whatsappLink" target="_blank">
-                            <Icon class="hoverable cursor-pointer hover:text-green-600 transition-all"
-                                icon="ic:baseline-whatsapp" width="1.5em" height="1.5em" />
+                        <a :href="contact.whatsappLink">
+                            <Icon
+                                class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-green-600 transition-all"
+                                icon="ic:baseline-whatsapp" />
                         </a>
-                        <a class="text-2xl" :href="contact.instagramLink" target="_blank">
-                            <Icon class="hoverable cursor-pointer hover:text-pink-600 transition-all"
-                                icon="dashicons:instagram" width="1.5em" height="1.5em" />
+                        <a :href="contact.instagramLink">
+                            <Icon
+                                class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-pink-600 transition-all"
+                                icon="dashicons:instagram" />
                         </a>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="bg-vr-light-gray">
-            <div class="w-1286 mx-auto pt-24 pb-36 ">
+            <div class="container mx-auto px-4 lg:pt-24 pt-16 xl:pb-36 pb-24 ">
                 <div class="flex flex-col items-center">
-                    <h1 class="text-6xl sofia-medium mb-5">You Have An Idea, Let Us Make It Happen!</h1>
-                    <p class="uppercase sofia-pro text-15 tracking-widest mb-8">
+                    <h1 class="xl:text-6xl lg:text-5xl sm:text-4xl text-2xl mb-5 text-center sofia-medium">You Have An
+                        Idea,
+                        Let Us Make It Happen!</h1>
+                    <p class="uppercase sofia-pro sm:text-15 text-[13px] tracking-widest mb-8">
                         Contact Us Via</p>
-                    <div class="flex items-center justify-center gap-40 w-full">
+                    <div class="flex sm:flex-row flex-col items-center justify-center lg:gap-40 sm:gap-12 gap-5 w-full">
                         <div class="flex flex-col items-center">
-                            <p class="sofia-light-italic mb-1">Trung Le - Founder</p>
-                            <p class="text-19 text-blue-800">{{ contact.emailAddress }}</p>
+                            <p class="sofia-light-italic mb-1 lg:text-base text-sm">Trung Le - Founder</p>
+                            <p class="lg:text-19 text-base text-blue-800">{{ contact.emailAddress }}</p>
                         </div>
                         <div class="flex flex-col items-center">
-                            <p class="sofia-light-italic mb-1">Address: Da Nang City, VietNam</p>
-                            <p class="text-19 ">{{ contact.address }}</p>
+                            <p class="sofia-light-italic mb-1 lg:text-base text-sm">Address: Da Nang City, VietNam</p>
+                            <p class="lg:text-19 text-base ">{{ contact.address }}</p>
                         </div>
                         <div class="flex flex-col items-center">
-                            <p class="sofia-light-italic mb-1">Whatsapp - Call</p>
-                            <p class="text-19 text-green-600">+84 {{ contact.phone }}</p>
+                            <p class="sofia-light-italic mb-1 lg:text-base text-sm">Whatsapp - Call</p>
+                            <p class="lg:text-19 text-base text-green-600">+84 {{ contact.phone }}</p>
                         </div>
                     </div>
-                    <div class="border-b border-solid w-4/5 mt-12"></div>
+                    <div class="border-b border-solid lg:w-4/5 w-full sm:mt-12 mt-5"></div>
                 </div>
-                <div class="formBox mx-80 px-12 py-12 bg-white border border-solid mt-20">
-                    <form action="">
-                        <div class=" flex flex-col mb-8">
-                            <label class="mb-2 text-black" for="username">Your Name</label>
-                            <input placeholder="Full Name" class="pl-4 pr-2 h-12 outline-none bg-[#FAF6F3]" type="text"
-                                id="username">
-                        </div>
-                        <div class=" flex flex-col mb-8">
-                            <label class="mb-2 text-black" for="email">Your Email</label>
-                            <input placeholder="Enter your email" class="pl-4 pr-2 h-12 outline-none bg-[#FAF6F3]"
-                                type="email" id="email">
-                        </div>
-                        <div class=" flex flex-col mb-8">
-                            <label class="mb-2 text-black" for="email">Subject</label>
-                            <input placeholder="Enter your email" class="pl-4 pr-2 h-12 outline-none bg-[#FAF6F3]"
-                                type="email" id="email">
-                        </div>
-                        <div class=" flex flex-col mb-8">
-                            <label class="mb-2 text-black" for="messenge">Leave us a Message</label>
-                            <textarea placeholder="Please type your message here..."
-                                class="pl-4 pr-2 py-3 outline-none bg-[#FAF6F3]" name="messenge" id="messenge" rows="5"
-                                cols="15"></textarea>
-                        </div>
-                        <button
-                            class="bg-black hover:scale-[0.9] text-white transition-all duration-500 border-black border-solid border-[1px] sofia-pro px-4 py-3 w-40">Send
-                            Message</button>
-                    </form>
+                <div class="container mx-auto">
+                    <div
+                        class="formBox xl:mx-80 lg:mx-52 sm:mx-20 mx-0 px-12 py-12 bg-white border border-solid sm:mt-20 mt-12">
+                        <form action="">
+                            <div class=" flex flex-col mb-8">
+                                <label class="lg:text-base text-sm mb-2 text-black" for="username">Your Name</label>
+                                <input placeholder="Full Name"
+                                    class="lg:text-base text-sm pl-4 pr-2 h-12 outline-none bg-[#FAF6F3]" type="text"
+                                    id="username">
+                            </div>
+                            <div class=" flex flex-col mb-8">
+                                <label class="lg:text-base text-sm mb-2 text-black" for="email">Your Email</label>
+                                <input placeholder="Enter your email"
+                                    class="lg:text-base text-sm pl-4 pr-2 h-12 outline-none bg-[#FAF6F3]" type="email"
+                                    id="email">
+                            </div>
+                            <div class=" flex flex-col mb-8">
+                                <label class="lg:text-base text-sm mb-2 text-black" for="email">Subject</label>
+                                <input placeholder="Enter your email"
+                                    class="lg:text-base text-sm pl-4 pr-2 h-12 outline-none bg-[#FAF6F3]" type="email"
+                                    id="email">
+                            </div>
+                            <div class=" flex flex-col mb-8">
+                                <label class="lg:text-base text-sm mb-2 text-black" for="messenge">Leave us a
+                                    Message</label>
+                                <textarea placeholder="Please type your message here..."
+                                    class="lg:text-base text-sm pl-4 pr-2 py-3 outline-none bg-[#FAF6F3]"
+                                    name="messenge" id="messenge" rows="5" cols="15"></textarea>
+                            </div>
+                            <button
+                                class="bg-black lg:text-base text-sm hover:scale-[0.9] text-white transition-all duration-500 border-black border-solid border-[1px] sofia-pro px-4 py-3 w-40">Send
+                                Message</button>
+                        </form>
+                    </div>
                 </div>
                 <iframe class="w-full mt-20 border border-solid" :src="contact.locationEmbed" width="600" height="500"
                     loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
