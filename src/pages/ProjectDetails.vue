@@ -66,7 +66,7 @@ function getUrl() {
 
 <template>
     <div class="w-screen">
-        <div class="pb-40 lg:pt-60 md:pt-52 pt-36 container mx-auto px-4">
+        <div class="lg:pb-40 sm:pb-20 pb-16 lg:pt-60 md:pt-52 pt-36 container mx-auto px-4">
             <h1 class="md:text-6xl sm:text-5xl text-4xl sofia-medium">{{ projectDetails.name }}</h1>
             <div class="flex mt-16">
                 <div class="mr-16">
