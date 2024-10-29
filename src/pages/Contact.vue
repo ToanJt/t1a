@@ -33,6 +33,7 @@ onMounted(async () => {
 
 <template>
     <div>
+
         <div class="bg-black ">
             <div class="relative">
                 <div class="w-screen relative lg:h-[600px] md:h-[500px] h-[400px] opacity-15 overflow-hidden ">
