@@ -108,16 +108,16 @@ function activeHandle(optionNumber: number) {
 <template>
     <div>
         <div class="bg-black ">
-            <div class="">
+            <div class="relative">
                 <div class="w-screen relative lg:h-[600px] md:h-[500px] h-[400px] opacity-15 overflow-hidden ">
                     <img class="w-full h-full bg-top object-cover" src="../assets/images/projects-bg.jpg" alt="">
                 </div>
                 <div
-                    class="container mx-auto md:px-20 px-4 absolute top-0 left-0 right-0 fix-firstScreen md:bottom-40 sm:bottom-60 ssm:bottom-80 bottom-[30vh] justify-center text-white flex flex-col items-start mb-24">
+                    class="container w-full h-full fixHeight mx-auto md:px-20 px-4 absolute top-0 left-0 right-0 fix-firstScreen bottom-0 justify-center text-white flex flex-col items-start">
                     <h1
-                        class="xl:text-8xl lg:text-6xl md:text-5xl sm:text-4xl text-3xl sofia-medium uppercase xl:mb-20 sm:mb-10 mb-5">
+                        class="2xl:text-8xl lg:text-6xl md:text-5xl sm:text-4xl text-3xl sofia-medium uppercase 2xl:mb-20 sm:mb-10 mb-5">
                         Portfolio</h1>
-                    <p class="md:w-2/3 xl:text-base lg:text-15 sm:text-sm text-[12px]">Lorem ipsum, dolor sit amet
+                    <p class="md:w-2/3 2xl:text-base lg:text-15 sm:text-sm text-[12px]">Lorem ipsum, dolor sit amet
                         consectetur
                         adipisicing
                         elit.
@@ -133,13 +133,13 @@ function activeHandle(optionNumber: number) {
         <div class="bg-vr-light-gray ">
             <div class="container mx-auto md:px-20 px-4 lg:pt-24 pt-16 lg:pb-36 pb-20">
                 <div class="flex flex-col items-center">
-                    <h1 class="xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium sm:mb-5 mb-2">Our
+                    <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium sm:mb-5 mb-2">Our
                         Latest
                         Articles & Resources</h1>
                     <p class="uppercase text-center sofia-pro sm:text-15 text-[13px] tracking-widest">
                         Design Matters: Exploring the Impact of Architecture on Our Lives</p>
                     <ul
-                        class="flex flex-wrap xl:gap-x-12 gap-x-10 gap-y-2 justify-center xl:text-2xl lg:text-xl md:text-lg text-sm lg:pb-6 pb-3 xl:mt-24 lg:mt-16 mt-8 border-b border-solid uppercase text-zinc-500">
+                        class="flex flex-wrap 2xl:gap-x-12 gap-x-10 gap-y-2 justify-center 2xl:text-2xl lg:text-xl md:text-lg text-sm lg:pb-6 pb-3 2xl:mt-24 lg:mt-16 mt-8 border-b border-solid uppercase text-zinc-500">
                         <li @click="activeHandle(0)" :class="{ 'activeOption': isActive[0] }"
                             class="hover:text-black transition-colors duration-500 cursor-pointer ">
                             All</li>
@@ -157,7 +157,7 @@ function activeHandle(optionNumber: number) {
                             class="hover:text-black transition-colors duration-500 cursor-pointer">Large</li>
                     </ul>
                 </div>
-                <div class="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 lg:mt-20 md:mt-16 mt-8">
+                <div class="grid 2xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 lg:mt-20 md:mt-16 mt-8">
                     <div v-for="(column, index) in galleries" :key="index" class="column col-span-1 gallery">
                         <div class="relative project-image cursor-pointer overflow-hidden mb-6"
                             v-for="(image, key) in column" :key="key">
@@ -166,18 +166,18 @@ function activeHandle(optionNumber: number) {
                                     :alt="image.description || undefined" />
                                 <div
                                     class="project-description transition-all duration-500  text-white p-6 bg-vr-light-gray-blur flex flex-col justify-center items-center absolute top-0 left-0 right-0 bottom-0">
-                                    <h1 class="text-2xl text-center mb-2">{{ image.name }}</h1>
-                                    <div class="flex justify-center w-full">
-                                        <p class="text-15 mx-2">Client: {{ image.client }}</p>
+                                    <h1 class="xl:text-2xl lg:text-xl text-lg text-center mb-2">{{ image.name }}</h1>
+                                    <div class="lg:flex hidden justify-center w-full">
+                                        <p class="xl:text-15 text-[12px] mx-2">Client: {{ image.client }}</p>
                                         <div class="flex items-center">
                                             <Icon icon="mdi:dot" width="1em" height="1em" style="color: white" />
                                         </div>
-                                        <p class="text-15 mx-2">Year: {{ image.year
+                                        <p class="xl:text-15 text-[12px] mx-2">Year: {{ image.year
                                             }}</p>
                                         <div class="flex items-center">
                                             <Icon icon="mdi:dot" width="1em" height="1em" style="color: white" />
                                         </div>
-                                        <p class="text-15 mx-2">{{ image.type }}</p>
+                                        <p class="xl:text-15 text-[12px] mx-2">{{ image.type }}</p>
                                     </div>
                                 </div>
                             </router-link>
@@ -185,18 +185,18 @@ function activeHandle(optionNumber: number) {
                     </div>
                 </div>
                 <div
-                    class="bg-black lg:mt-20 md:mt-10 mt-2 lg:static relative text-white flex xl:gap-32 lg:gap-16 gap-8">
-                    <img class="lg:mt-24 lg:opacity-100 opacity-30 mt-0 lg:static absolute left-0 right-0 top-0 bottom-0 xl:w-96 lg:w-60 w-full xl:h-96 lg:h-[21rem] h-full object-cover"
+                    class="bg-black lg:mt-20 md:mt-10 mt-2 lg:static relative text-white flex 2xl:gap-32 lg:gap-16 gap-8">
+                    <img class="lg:mt-24 lg:opacity-100 opacity-30 mt-0 lg:static absolute left-0 right-0 top-0 bottom-0 2xl:w-96 lg:w-60 w-full 2xl:h-96 lg:h-[21rem] h-full object-cover"
                         src="../assets/images/bg-contact.jpg" alt="">
                     <div class="lg:mt-24 p-8 lg:static relative">
                         <h1
-                            class="text-left lg:mr-4 mr-0 xl:text-6xl lg:text-5xl sm:text-4xl text-2xl sofia-medium sm:mb-5 mb-25">
+                            class="text-left lg:mr-4 mr-0 2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl sofia-medium sm:mb-5 mb-25">
                             Our Latest Articles & Resources</h1>
                         <p class="uppercase lg:mr-4 mr-0 text-left sofia-pro sm:text-15 text-[13px] tracking-widest">
                             Design Matters: Exploring the Impact of Architecture on Our Lives</p>
                         <div class=" flex mt-20 lg:mr-4 mr-0 lg:mb-8 md:mb-5 mb-2">
                             <input
-                                class="bg-white lg:text-[1rem] text-sm xl:w-80 w-full md:px-4 px-3 outline-none text-black"
+                                class="bg-white lg:text-[1rem] text-sm 2xl:w-80 w-full md:px-4 px-3 outline-none text-black"
                                 placeholder="Your Email Address" type="email">
                             <div class="sm:p-2 p-1 bg-white">
                                 <button

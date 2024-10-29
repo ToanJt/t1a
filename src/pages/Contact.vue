@@ -34,14 +34,14 @@ onMounted(async () => {
 <template>
     <div>
         <div class="bg-black ">
-            <div class="">
+            <div class="relative">
                 <div class="w-screen relative lg:h-[600px] md:h-[500px] h-[400px] opacity-15 overflow-hidden ">
                     <img class="w-full h-full bg-top object-cover" src="../assets/images/bg-about.jpg" alt="">
                 </div>
                 <div
-                    class="container mx-auto md:px-20 px-4 absolute top-0 left-0 right-0 fix-firstScreen md:bottom-40 sm:bottom-60 ssm:bottom-80 bottom-[30vh] justify-center text-white flex flex-col items-start mb-24">
+                    class="container w-full h-full fixHeight mx-auto md:px-20 px-4 absolute top-0 left-0 right-0 bottom-0 fix-firstScreen justify-center text-white flex flex-col items-start">
                     <h1
-                        class="xl:text-8xl lg:text-6xl md:text-5xl sm:text-4xl text-3xl sofia-medium uppercase xl:mb-20 sm:mb-10 mb-5">
+                        class="2xl:text-8xl lg:text-6xl md:text-5xl sm:text-4xl text-3xl sofia-medium uppercase 2xl:mb-20 sm:mb-10 mb-5">
                         Contact</h1>
                     <ul class="flex gap-6 text-2xl pb-6">
                         <a :href="contact.facebookLink">
@@ -64,9 +64,9 @@ onMounted(async () => {
             </div>
         </div>
         <div class="bg-vr-light-gray">
-            <div class="container mx-auto px-4 lg:pt-24 pt-16 xl:pb-36 pb-24 ">
+            <div class="container mx-auto px-4 lg:pt-24 pt-16 2xl:pb-36 pb-24 ">
                 <div class="flex flex-col items-center">
-                    <h1 class="xl:text-6xl lg:text-5xl sm:text-4xl text-2xl mb-5 text-center sofia-medium">You Have An
+                    <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl mb-5 text-center sofia-medium">You Have An
                         Idea,
                         Let Us Make It Happen!</h1>
                     <p class="uppercase sofia-pro sm:text-15 text-[13px] tracking-widest mb-8">
@@ -89,7 +89,7 @@ onMounted(async () => {
                 </div>
                 <div class="container mx-auto">
                     <div
-                        class="formBox xl:mx-80 lg:mx-52 sm:mx-20 mx-0 px-12 py-12 bg-white border border-solid sm:mt-20 mt-12">
+                        class="formBox 2xl:mx-80 lg:mx-52 sm:mx-20 mx-0 px-12 py-12 bg-white border border-solid sm:mt-20 mt-12">
                         <form action="">
                             <div class=" flex flex-col mb-8">
                                 <label class="lg:text-base text-sm mb-2 text-black" for="username">Your Name</label>

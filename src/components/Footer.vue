@@ -41,40 +41,40 @@ onMounted(async () => {
             <div class="mx-auto container px-4">
                 <div class="grid lg:grid-cols-5 grid-cols-1 lg:gap-40 gap-20">
                     <div class=" col-span-3">
-                        <h1 class="xl:text-8xl md:text-6xl text-5xl font-heading text-dark">We make <br>a <span
+                        <h1 class="2xl:text-8xl md:text-6xl text-5xl font-heading text-dark">We make <br>a <span
                                 class="auto-type underline text-white"></span>
                         </h1>
                     </div>
                     <div class=" col-span-2 flex sm:flex-row flex-col sm:gap-20 gap-5">
                         <ul class=" font-europa-light">
-                            <li class="xl:text-2xl md:text-xl sm:text-lg text-2xl sofia-bold sm:mb-8 mb-5">Contact</li>
+                            <li class="2xl:text-2xl md:text-xl sm:text-lg text-2xl sofia-bold sm:mb-8 mb-5">Contact</li>
                             <li class="sm:pb-6 pb-3">
                                 <router-link to="/about">
-                                    <p class="xl:text-xl md:text-lg sm:text-md text-xl">About Us</p>
+                                    <p class="2xl:text-xl md:text-lg sm:text-md text-xl">About Us</p>
                                 </router-link>
                             </li>
                             <li class="sm:pb-6 pb-3">
                                 <router-link to="/contact">
-                                    <p class="xl:text-xl md:text-lg sm:text-md text-xl">Email Us</p>
+                                    <p class="2xl:text-xl md:text-lg sm:text-md text-xl">Email Us</p>
                                 </router-link>
                             </li>
                             <li class="sm:pb-6 pb-3">
                                 <router-link to="/contact">
-                                    <p class="xl:text-xl md:text-lg sm:text-md text-xl">Call Us</p>
+                                    <p class="2xl:text-xl md:text-lg sm:text-md text-xl">Call Us</p>
                                 </router-link>
                             </li>
                         </ul>
                         <ul class=" font-europa-light">
-                            <li class="xl:text-2xl md:text-xl sm:text-lg text-2xl sofia-bold sm:mb-8 mb-5">Our Projects
+                            <li class="2xl:text-2xl md:text-xl sm:text-lg text-2xl sofia-bold sm:mb-8 mb-5">Our Projects
                             </li>
                             <li class="sm:pb-6 pb-3">
                                 <router-link to="/projects">
-                                    <p class="xl:text-xl md:text-lg sm:text-md text-xl">Interior</p>
+                                    <p class="2xl:text-xl md:text-lg sm:text-md text-xl">Interior</p>
                                 </router-link>
                             </li>
                             <li class="sm:pb-6 pb-3">
                                 <router-link to="/projects">
-                                    <p class="xl:text-xl md:text-lg sm:text-md text-xl">Exterior</p>
+                                    <p class="2xl:text-xl md:text-lg sm:text-md text-xl">Exterior</p>
                                 </router-link>
                             </li>
                         </ul>
@@ -100,7 +100,7 @@ onMounted(async () => {
                             inbox today.</p>
                     </div>
                     <div class="sm:block hidden col-span-2">
-                        <p class="xl:text-2xl lg:text-xl text-md sofia-bold lg:mb-4 mb-1">
+                        <p class="2xl:text-2xl lg:text-xl text-md sofia-bold lg:mb-4 mb-1">
                             Get in touch
                         </p>
                         <p
@@ -123,7 +123,7 @@ onMounted(async () => {
                 </div>
                 <div class="flex justify-between mt-8">
                     <p class="lg:text-[1rem] text-sm uppercase">2024 TrungTeam®.</p>
-                    <ul class="flex gap-4 xl:mr-20 mr-0">
+                    <ul class="flex gap-4 2xl:mr-20 mr-0">
                         <a :href="infomation.facebookLink">
                             <Icon
                                 class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-blue-600 transition-all"

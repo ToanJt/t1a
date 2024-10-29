@@ -103,3 +103,11 @@ body {
 circle {
   fill: #f7f8fa;
 }
+
+/* Fix height responsive */
+
+/* @media only screen and (max-height: 800px) {
+  .fixHeight {
+    top: 15rem;
+  }
+} */

@@ -71,6 +71,23 @@ onMounted(() => {
                 <router-link to="/projects">Projects</router-link>
                 <router-link to="/about">About Us</router-link>
                 <router-link to="/contact">Contact</router-link>
+                <div class="flex items-center gap-3">
+                    <a href="">
+                        <Icon
+                            class=" opacity-50 hover:opacity-100 text-white transition-colors duration-500 hover:text-blue-600"
+                            icon="ant-design:facebook-filled" width="1em" height="1em" />
+                    </a>
+                    <a href="">
+                        <Icon
+                            class=" opacity-50 hover:opacity-100 text-white transition-colors duration-500 hover:text-pink-600"
+                            icon="ri:instagram-fill" width="1em" height="1em" />
+                    </a>
+                    <a href="">
+                        <Icon
+                            class=" opacity-50 hover:opacity-100 text-white transition-colors duration-500 hover:text-green-600"
+                            icon="mingcute:whatsapp-fill" width="1em" height="1em" />
+                    </a>
+                </div>
             </div>
         </div>
         <div :class="{ '!flex': isActiveNavbar }"

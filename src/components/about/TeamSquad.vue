@@ -20,9 +20,9 @@ onMounted(() => {
 <template>
     <div class="lg:mb-24 mb-16 bg-black">
         <div class="px-4">
-            <div class="container mx-auto xl:px-24 text-white lg:pb-24 pb-16">
-                <div class="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 lg:pt-24 pt-16">
-                    <div class=" xl:ml-0 sm:ml-12 ml-0">
+            <div class="container mx-auto 2xl:px-24 text-white lg:pb-24 pb-16">
+                <div class="grid 2xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 lg:pt-24 pt-16">
+                    <div class=" 2xl:ml-0 sm:ml-12 ml-0">
                         <div>
                             <h1 class="md:text-5xl sm:text-4xl text-3xl sofia-medium sm:mb-5 mb-2 uppercase">Team Squad
                             </h1>
@@ -30,7 +30,7 @@ onMounted(() => {
                                 We have 15 Talent 3D Artirst</p>
                         </div>
                         <p
-                            class="sm:mt-10 mt-5 xl:text-base lg:text-15 sm:text-sm text-[12px] sm:text-left text-justify font-europa-light lg:pr-12 pr-0">
+                            class="sm:mt-10 mt-5 2xl:text-base lg:text-15 sm:text-sm text-[12px] sm:text-left text-justify font-europa-light lg:pr-12 pr-0">
                             Distinctive And Avant-garde Design
                             and
                             Architecture. Arcus, a Dynamicand Specialized

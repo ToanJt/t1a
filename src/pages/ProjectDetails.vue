@@ -90,9 +90,6 @@ function getUrl() {
                     width="1em" height="1em" />
                 <Icon class="hoverable cursor-pointer hover:text-pink-600 transition-all" icon="dashicons:instagram"
                     width="1em" height="1em" />
-                <Icon class="hoverable cursor-pointer hover:text-green-600 transition-all"
-                    icon="fa6-brands:square-upwork" width="1em" height="1em" />
-
                 <div class="flex cursor-pointer relative copyLink">
                     <i @click="getUrl()" class="text-sm fa-solid fa-link"></i>
                     <div

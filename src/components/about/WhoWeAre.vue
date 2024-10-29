@@ -7,7 +7,7 @@
                     <h1 class="md:text-5xl sm:text-4xl text-3xl sofia-medium mb-5 uppercase">who we are
                     </h1>
                     <p
-                        class="xl:text-base lg:text-15 sm:text-sm text-[12px] sm:text-left text-justify font-europa-light pr-8">
+                        class="2xl:text-base lg:text-15 sm:text-sm text-[12px] sm:text-left text-justify font-europa-light pr-8">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ducimus voluptates
                         architecto, sit eaque exercitationem adipisci rerum consequuntur necessitatibus quibusdam
                         provident voluptatum porro! Suscipit explicabo voluptas porro incidunt fugiat tempore?</p>
@@ -27,7 +27,7 @@
                 <h1 class="md:text-5xl sm:text-4xl text-3xl sofia-medium mb-5 uppercase">our story
                 </h1>
                 <p
-                    class="xl:text-base lg:text-15 sm:text-sm text-[12px] sm:text-left text-justify font-europa-light pr-12">
+                    class="2xl:text-base lg:text-15 sm:text-sm text-[12px] sm:text-left text-justify font-europa-light pr-12">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ducimus voluptates
                     architecto, sit eaque exercitationem adipisci rerum consequuntur necessitatibus quibusdam
                     provident voluptatum porro! Suscipit explicabo voluptas porro incidunt fugiat tempore?</p>

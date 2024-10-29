@@ -5,7 +5,7 @@
                 clients and
                 completed over 1998
                 projects</p>
-            <h1 class="xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium">Our Featured Clients
+            <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium">Our Featured Clients
             </h1>
         </div>
         <div class="grid md:grid-cols-4 grid-cols-2">

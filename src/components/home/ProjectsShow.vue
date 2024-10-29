@@ -132,10 +132,10 @@ onMounted(() => {
             <div class="flex flex-col items-center lg:mb-24 sm:mb-16 mb-8">
                 <p class="uppercase sofia-pro sm:text-15 text-[13px] tracking-widest sm:mb-5 mb-2">Let the Magic Begin!
                 </p>
-                <h1 class="xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium">Our Latest Creations
+                <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium">Our Latest Creations
                 </h1>
             </div>
-            <div class="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
+            <div class="grid 2xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
                 <div v-for="(column, index) in galleries" :key="index" class="column col-span-1 gallery">
                     <a v-for="(image, key) in column" :key="key" :href="image.largeURL"
                         :data-pswp-width="image.widthOrigin" :data-pswp-height="image.heightOrigin" target="_blank"
