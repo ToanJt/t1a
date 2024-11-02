@@ -90,7 +90,7 @@ onMounted(async () => {
                 </div>
                 <div class="container mx-auto">
                     <div
-                        class="formBox 2xl:mx-80 lg:mx-52 sm:mx-20 mx-0 px-12 py-12 bg-white border border-solid sm:mt-20 mt-12">
+                        class="formBox 2xl:mx-80 lg:mx-52 sm:mx-20 mx-0 md:px-12 sm:px-8 px-6 md:py-12 sm:py-8 py-6 bg-white border border-solid sm:mt-20 mt-12">
                         <form action="">
                             <div class=" flex flex-col mb-8">
                                 <label class="lg:text-base text-sm mb-2 text-black" for="username">Your Name</label>
