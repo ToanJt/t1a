@@ -18,6 +18,8 @@ const projectDetails = reactive({
     year: '',
     type: '',
     size: '',
+    is360: false,
+    link360: '',
     images: <string[]>([]),
 });
 const router = useRouter();
@@ -45,6 +47,8 @@ onMounted(async () => {
             projectDetails.year = doc.data().year;
             projectDetails.type = doc.data().type;
             projectDetails.size = doc.data().size;
+            projectDetails.is360 = doc.data().is360;
+            projectDetails.link360 = doc.data().link360;
             doc.data().images.forEach((img: string) => {
                 projectDetails.images.push(img);
             })
@@ -67,7 +71,8 @@ function getUrl() {
 <template>
     <div class="w-screen">
         <div class="lg:pb-40 sm:pb-20 pb-16 lg:pt-60 md:pt-52 pt-36 container mx-auto px-4">
-            <h1 class="md:text-6xl sm:text-5xl text-4xl sofia-medium">{{ projectDetails.name }}</h1>
+            <h1 class="md:text-6xl sm:text-5xl text-4xl sofia-medium">{{ projectDetails.name }} <span
+                    v-if="projectDetails.is360" class="text-blue-500 text-sm align-top">360°</span></h1>
             <div class="flex mt-16">
                 <div class="mr-16">
                     <p class="md:text-xl text-base sofia-medium mb-3">Client:</p>
@@ -98,7 +103,9 @@ function getUrl() {
                     </div>
                 </div>
             </ul>
-
+            <div v-if="projectDetails.is360" class="lg:mt-20 mt-16 grid lg:gap-20 md:gap-16 sm:gap-10 gap-8">
+                <iframe class="container h-screen" :src="projectDetails.link360" frameborder="0"></iframe>
+            </div>
             <div class="lg:mt-20 mt-16 grid lg:gap-20 md:gap-16 sm:gap-10 gap-8">
                 <img v-for="(image, index) in projectDetails.images" :key="index" loading="lazy" :src="image" alt="">
             </div>

@@ -10,10 +10,11 @@ import { getDocs, collection, DocumentData } from 'firebase/firestore';
 
 const images = ref<ImageData[]>([]);
 const projects = ref<DocumentData[]>([]);
-const isActive = ref<Array<boolean>>([true, false, false, false, false, false, false]);
+const isActive = ref<Array<boolean>>([true, false, false, false, false, false, false, false]);
 const currentOption = ref<number>(0);
 const projectType = ref<string>('all');
 const projectSize = ref<string>('');
+const is360 = ref<boolean>();
 
 onMounted(async () => {
     const projectsCollection = await getDocs(collection(db, 'projects'));
@@ -21,7 +22,6 @@ onMounted(async () => {
         const projectData = project.data();
         const imageData = convertToImageData(projectData);
         images.value.push(imageData);
-
         projects.value.push(projectData);
     })
     onTop('instant');
@@ -48,6 +48,11 @@ function showProjectOption(params: number) {
     // All Project
     if (params === 0) {
         return projects.value;
+    }
+    if (params === 7) {
+        return projects.value.filter((item) => {
+            return item.is360 === is360.value;
+        })
     }
     // Type Project
     else if (params >= 1 && params < 4) {
@@ -99,6 +104,11 @@ function activeHandle(optionNumber: number) {
             isActive.value[6] = true;
             isActive.value[currentOption.value] = false;
             projectSize.value = 'large';
+            break;
+        case 7:
+            isActive.value[7] = true;
+            isActive.value[currentOption.value] = false;
+            is360.value = true;
             break;
     }
     currentOption.value = optionNumber;
@@ -155,6 +165,10 @@ function activeHandle(optionNumber: number) {
                             class="hover:text-black transition-colors duration-500 cursor-pointer">Medium</li>
                         <li @click="activeHandle(6)" :class="{ 'activeOption': isActive[6] }"
                             class="hover:text-black transition-colors duration-500 cursor-pointer">Large</li>
+                        <li @click="activeHandle(7)" :class="{ 'activeOption': isActive[7] }"
+                            class="hover:text-black transition-colors duration-500 cursor-pointer">
+                            360°
+                        </li>
                     </ul>
                 </div>
                 <div class="grid 2xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 lg:mt-20 md:mt-16 mt-8">

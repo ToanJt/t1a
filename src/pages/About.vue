@@ -1,13 +1,25 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import WhoWeAre from '../components/about/WhoWeAre.vue';
 import TeamSquad from '../components/about/TeamSquad.vue';
 import Career from '../components/about/Career.vue';
 import { onTop } from '../functions/functions';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebaseConfig';
 
 onMounted(() => {
     onTop('instant');
+    getIsActive();
 })
+const teamActive = ref(false);
+const getIsActive = async () => {
+    const dataRef = await doc(db, 'actives', 'isActiveTeam');
+    const data = await getDoc(dataRef);
+    if (data.exists()) {
+        teamActive.value = data.data().isactive;
+    }
+}
+
 </script>
 
 <template>
@@ -36,7 +48,7 @@ onMounted(() => {
             </div>
         </div>
         <WhoWeAre></WhoWeAre>
-        <TeamSquad></TeamSquad>
+        <TeamSquad v-if="teamActive"></TeamSquad>
         <Career></Career>
     </div>
 </template>
