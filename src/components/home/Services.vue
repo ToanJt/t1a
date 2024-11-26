@@ -78,9 +78,6 @@ onMounted(() => {
                                 </div>
 
                             </div>
-                            <!-- <button class="" ref="button">
-                                <i class="fa-solid fa-link"></i>
-                            </button> -->
                         </div>
                         <p class="text-xl uppercase">Interior Rendering</p>
                     </div>
@@ -94,9 +91,6 @@ onMounted(() => {
                                 </div>
 
                             </div>
-                            <!-- <button class="" ref="button">
-                                <i class="fa-solid fa-link"></i>
-                            </button> -->
                         </div>
                         <p class="text-xl uppercase">360 Rendering</p>
                     </div>
