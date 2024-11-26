@@ -40,22 +40,24 @@ onMounted(() => {
       duration: 0.3,
     });
   }
-  startLoading();
+  // startLoading();
 })
 
-const route = useRoute();
-const isLoading = ref(true);
-const startLoading = () => {
-  isLoading.value = true;
-  setTimeout(() => {
-    isLoading.value = false;
-  }, 1500)
-}
 
-watch(route,
-  () => {
-    startLoading();
-  })
+
+// const route = useRoute();
+// const isLoading = ref(true);
+// const startLoading = () => {
+//   isLoading.value = true;
+//   setTimeout(() => {
+//     isLoading.value = false;
+//   }, 1500)
+// }
+
+// watch(route,
+//   () => {
+//     startLoading();
+//   })
 
 </script>
 
@@ -75,8 +77,8 @@ watch(route,
     </div>
     <Header></Header>
     <RouterView v-slot="{ Component, route }">
-      <PreLoader :class="{ 'hidden-preloader': !isLoading }">
-      </PreLoader>
+      <!-- <PreLoader :class="{ 'hidden-preloader': !isLoading }">
+      </PreLoader> -->
       <component :is="Component" :key="route.path">
       </component>
     </RouterView>

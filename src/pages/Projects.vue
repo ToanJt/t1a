@@ -159,12 +159,6 @@ function activeHandle(optionNumber: number) {
                             class="hover:text-black transition-colors duration-500 cursor-pointer">Exterior</li>
                         <li @click="activeHandle(3)" :class="{ 'activeOption': isActive[3] }"
                             class="hover:text-black transition-colors duration-500 cursor-pointer">Interior</li>
-                        <li @click="activeHandle(4)" :class="{ 'activeOption': isActive[4] }"
-                            class="hover:text-black transition-colors duration-500 cursor-pointer">Small</li>
-                        <li @click="activeHandle(5)" :class="{ 'activeOption': isActive[5] }"
-                            class="hover:text-black transition-colors duration-500 cursor-pointer">Medium</li>
-                        <li @click="activeHandle(6)" :class="{ 'activeOption': isActive[6] }"
-                            class="hover:text-black transition-colors duration-500 cursor-pointer">Large</li>
                         <li @click="activeHandle(7)" :class="{ 'activeOption': isActive[7] }"
                             class="hover:text-black transition-colors duration-500 cursor-pointer">
                             360°

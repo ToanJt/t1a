@@ -62,7 +62,9 @@ onMounted(() => {
     <div class="relative">
         <div
             class="fixed px-4 mix-blend-exclusion text-white z-20 top-0 left-0 right-0 container mx-auto h-28 flex items-center justify-between">
-            <h1 class="font-roboto lg:text-6xl text-5xl">T1A</h1>
+            <router-link class="heading" to="/">
+                <h1 class="font-roboto lg:text-6xl text-5xl">T1A</h1>
+            </router-link>
             <div @click="activeHandle()" class="lg:hidden flex relative">
                 <i class="text-2xl fa-solid fa-bars"></i>
             </div>
@@ -146,6 +148,7 @@ a {
     transition: all 0.3s ease-in-out;
 }
 
+
 a:before {
     content: '';
     background: white;
@@ -158,11 +161,16 @@ a:before {
     transition: all 0.3s ease-in-out;
 }
 
+
 a:hover {
     background-position: 0;
 }
 
 a:hover::before {
     width: 100%;
+}
+
+.heading:hover::before {
+    display: none;
 }
 </style>

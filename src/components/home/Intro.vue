@@ -2,112 +2,100 @@
 import { Icon } from '@iconify/vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { onMounted, ref } from 'vue';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import 'swiper/css';
 import { collection, DocumentData, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
+import Splitting from "splitting";
 
 const swiperInstance = ref();
 const backgrounds = ref<DocumentData[]>([]);
+
+function animateSlide(swiper: any) {
+    const currentIndex = swiper.activeIndex;
+    Splitting();
+
+    // Animate the current and previous slides
+    gsap.from(swiper.slides[currentIndex].querySelectorAll('.word'), {
+        y: -150,
+        opacity: 0,
+        stagger: 0.05,
+    });
+    gsap.to(swiper.slides[currentIndex].querySelectorAll('.word'), {
+        y: 0,
+        opacity: 1,
+        stagger: 0.05,
+        duration: 0.5,
+    });
+    gsap.from(swiper.slides[currentIndex].querySelectorAll('p'), {
+        y: -150,
+        opacity: 0,
+        stagger: 0.25,
+    })
+    gsap.to(swiper.slides[currentIndex].querySelectorAll('p'), {
+        y: 0,
+        opacity: 1,
+        stagger: 0.25,
+        duration: 1,
+    });
+}
+
 const onSwiper = (swiper: any) => {
     swiperInstance.value = swiper;
+    swiper.on("slideNextTransitionStart", () => {
+        animateSlide(swiper)
+    });
+    swiper.on("slidePrevTransitionStart", () => {
+        animateSlide(swiper)
+    });
 }
 
 const nextSlide = () => {
     swiperInstance.value.slideNext();
-    animationGsap();
 }
-
-// Hàm hiệu ứng xuất hiện của text với hiệu ứng chạy từ dưới lên
-function animationGsap() {
-    gsap.timeline({
-        defaults: {
-            duration: 1.5,
-            ease: 'power4.out',
-        }
-    })
-        .set([".gsap-heading", ".gsap-text1", ".gsap-text2", ".gsap-text3", ".gsap-button"], {
-            y: 100, // Bắt đầu từ dưới
-            opacity: 0, // Bắt đầu với độ mờ thấp
-        })
-        .to(".gsap-heading", {
-            y: 0, // Di chuyển lên vị trí gốc
-            opacity: 1, // Hiện ra hoàn toàn
-            duration: 1.5,
-            stagger: 0.2,
-        })
-        .to([".gsap-text1", ".gsap-text2", ".gsap-text3", ".gsap-button"], {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            stagger: 0.2,
-        })
-}
-
-// Hàm hiệu ứng thoát ra với hiệu ứng chạy lên trên
-function animationGsapExit(callback: any) {
-    gsap.timeline({
-        defaults: {
-            ease: 'power4.inOut',
-        },
-        onComplete: callback
-    })
-        .to([".gsap-heading", ".gsap-text1", ".gsap-text2", ".gsap-text3"], {
-            y: 100, // Di chuyển lên trên
-            opacity: 0, // Làm mờ dần
-            duration: 1.5,
-        })
-        .to(".gsap-button", {
-            y: 100,
-            opacity: 0,
-            duration: 1.5,
-        }, '-=1.5');
-}
-
 
 onMounted(async () => {
     const getBackgrounds = await getDocs(collection(db, 'backgrounds'));
     getBackgrounds.forEach((background) => {
         backgrounds.value.push(background.data());
     })
-    animationGsap();
     setInterval(() => {
-        // Gọi hiệu ứng thoát ra trước khi chuyển slide
-        animationGsapExit(() => {
-            nextSlide();
-        });
-    }, 30000);
+        nextSlide();
+    }, 15000)
 });
+
 </script>
 
 
 <template>
     <section class="w-screen">
-        <Swiper @swiper="onSwiper" :slides-per-view="1" loop>
+        <Swiper @swiper="onSwiper" :speed="800" :slides-per-view="1" loop>
             <SwiperSlide v-for="background in backgrounds">
                 <div>
                     <div class="relative bg-black text-white">
-                        <img class="w-screen h-screen object-cover opacity-15" :src="background.image" alt="">
+                        <img class="w-screen h-screen object-cover opacity-25" :src="background.image" alt="">
+
                         <div
                             class=" absolute mx-auto px-4 flex flex-col justify-center items-start 2xl:pr-80 lg:pr-40 sm:pr-32 pr-10 top-0 left-0 right-0 bottom-0 container ">
-                            <h1
-                                class="gsap-heading sofia-medium 2xl:text-7xl lg:text-5xl sm:text-4xl text-2xl leading-tight mb-10">
+
+                            <h1 data-splitting
+                                class=" sofia-medium 2xl:text-7xl lg:text-5xl sm:text-4xl text-2xl leading-tight mb-10">
                                 {{
                                     background.title }}
                             </h1>
                             <p
-                                class="gsap-text1 sm:text-left text-justify 2xl:text-[1rem] lg:text-[15px] sm:text-[14px] text-[12px] mb-4">
+                                class=" sm:text-left text-justify 2xl:text-[1rem] lg:text-[15px] sm:text-[14px] text-[12px] mb-4">
                                 {{
                                     background.content1
                                 }}</p>
                             <p v-if="background.content2"
-                                class="gsap-text2 sm:text-left text-justify 2xl:text-[1rem] lg:text-[15px] sm:text-[14px] text-[12px] mb-4">
+                                class=" sm:text-left text-justify 2xl:text-[1rem] lg:text-[15px] sm:text-[14px] text-[12px] mb-4">
                                 {{
                                     background.content2
                                 }}
                             </p>
                             <p v-if="background.content3"
-                                class="gsap-text3 sm:text-left text-justify 2xl:text-[1rem] lg:text-[15px] sm:text-[14px] text-[12px]">
+                                class=" sm:text-left text-justify 2xl:text-[1rem] lg:text-[15px] sm:text-[14px] text-[12px]">
                                 {{
                                     background.content3 }}
                             </p>
@@ -127,3 +115,10 @@ onMounted(async () => {
         </Swiper>
     </section>
 </template>
+
+<style scoped>
+.char {
+    transform: translateY(115px);
+    transition: transform 0.5s;
+}
+</style>

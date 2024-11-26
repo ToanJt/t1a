@@ -104,7 +104,7 @@ function getUrl() {
                 </div>
             </ul>
             <div v-if="projectDetails.is360" class="lg:mt-20 mt-16 grid lg:gap-20 md:gap-16 sm:gap-10 gap-8">
-                <iframe class="container h-screen" :src="projectDetails.link360" frameborder="0"></iframe>
+                <iframe class="container h-[90vh]" :src="projectDetails.link360" frameborder="0"></iframe>
             </div>
             <div class="lg:mt-20 mt-16 grid lg:gap-20 md:gap-16 sm:gap-10 gap-8">
                 <img v-for="(image, index) in projectDetails.images" :key="index" loading="lazy" :src="image" alt="">

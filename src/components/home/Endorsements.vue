@@ -35,7 +35,7 @@ onMounted(async () => {
     <section class="bg-black  text-white">
         <div class="container mx-auto overflow-hidden px-4 pt-24 2xl:px-24 pb-16">
             <h1 class="2xl:text-6xl lg:text-5xl text-4xl sofia-medium uppercase">Endorsements</h1>
-            <Swiper center class="sm:w-auto gap-4 w-[calc(100vw-2rem)] container mx-auto" pagination loop
+            <Swiper :speed="800" center class="sm:w-auto gap-4 w-[calc(100vw-2rem)] container mx-auto" pagination loop
                 :modules="module" @swiper="onSwiper">
                 <SwiperSlide class="sm:pr-0 ssm:pr-8 pr-0" v-for="feedback in feedbacks">
                     <div class="relative grid sm:grid-cols-3 grid-cols-1 lg:gap-12 gap-2 2xl:mt-24 lg:mt-16 mt-8">
