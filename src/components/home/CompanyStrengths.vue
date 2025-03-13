@@ -37,7 +37,8 @@
 
                         <div class="font-europa-light">
 
-                            <p class="2xl:text-base text-sm">Leveraging the resources of Vietnam, we provide
+                            <p class="2xl:text-base text-sm text-justify">Leveraging the resources of Vietnam, we
+                                provide
                                 competitive 3D services, enabling you to maximize your budget without compromising on
                                 exceptional quality. </p>
                         </div>
@@ -51,7 +52,8 @@
                     </div>
                     <div class="2xl:mt-8 mt-5 text-left ">
                         <div class="font-europa-light">
-                            <p class="2xl:text-base text-sm">We prioritize clear communication and understand your
+                            <p class="2xl:text-base text-sm text-justify">We prioritize clear communication and
+                                understand your
                                 needs, ensuring information is conveyed accurately and providing 24/7 support to address
                                 any concerns.</p>
                         </div>
