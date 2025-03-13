@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
     <main class=" mx-auto container px-4 lg:pb-24 pb-10 lg:mt-24 mt-16">
         <section v-motion :initial="{

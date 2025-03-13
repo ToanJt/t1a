@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { Icon } from "@iconify/vue"
-</script>
-
 <template>
     <section class="bg-vr-light-gray ">
         <div class=" mx-auto container md:pb-10 pb-6 px-4">
