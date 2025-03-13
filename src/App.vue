@@ -11,6 +11,7 @@ onMounted(() => {
   const $bigBall = document.querySelector(".cursor__ball--big");
   const $smallBall = document.querySelector(".cursor__ball--small");
   const $hoverables = document.querySelectorAll(".hoverable");
+
   document.body.addEventListener("mousemove", onMouseMove);
   for (let i = 0; i < $hoverables.length; i++) {
     $hoverables[i].addEventListener("mouseenter", onMouseHover);
@@ -40,6 +41,7 @@ onMounted(() => {
       duration: 0.3,
     });
   }
+
   startLoading();
 })
 

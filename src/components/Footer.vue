@@ -77,6 +77,17 @@ onMounted(async () => {
                                     <p class="2xl:text-xl md:text-lg sm:text-md text-xl">Exterior</p>
                                 </router-link>
                             </li>
+
+                            <li class="sm:pb-6 pb-3">
+                                <router-link to="/projects">
+                                    <p class="2xl:text-xl md:text-lg sm:text-md text-xl">360 Rendering</p>
+                                </router-link>
+                            </li>
+                            <li class="sm:pb-6 pb-3">
+                                <router-link to="/projects">
+                                    <p class="2xl:text-xl md:text-lg sm:text-md text-xl">Animation</p>
+                                </router-link>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -88,7 +99,7 @@ onMounted(async () => {
                                 placeholder="Your Email Address" type="email">
                             <div class="sm:p-2 p-1 bg-white">
                                 <button
-                                    class="bg-black lg:text-[1rem] text-sm hover:scale-[0.9] text-white transition-all duration-500 border-black border-solid border-[1px] sofia-pro uppercase md:px-4 px-2 py-3 md:w-40 w-32">Send
+                                    class="bg-main-color lg:text-[1rem] text-sm hover:scale-[0.9] text-white transition-all duration-500 border-main-color border-solid border-[1px] sofia-pro uppercase md:px-4 px-2 py-3 md:w-40 w-32">Send
                                     For Us</button>
                             </div>
                         </div>

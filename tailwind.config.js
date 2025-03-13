@@ -54,6 +54,7 @@ export default {
         "input-color": "#383838",
         "light-dark": "rgb(153, 153, 153)",
         dark: "rgb(51, 51, 51)",
+        "main-color": "#f15e22",
       },
       screens: {
         ssm: "425px",

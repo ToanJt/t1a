@@ -3,60 +3,61 @@ import { Icon } from "@iconify/vue"
 </script>
 
 <template>
-    <section class="bg-vr-light-gray">
-        <div class=" mx-auto container lg:pt-24 pt-16 md:pb-10 pb-6 px-4">
-            <div class="flex flex-col items-center lg:mb-24 sm:mb-16 mb-8">
-                <p class="uppercase sofia-pro sm:text-15 text-[13px] tracking-widest sm:mb-5 mb-2">Company Strengths</p>
+    <section class="bg-vr-light-gray ">
+        <div class=" mx-auto container md:pb-10 pb-6 px-4">
+            <div class="flex flex-col items-center lg:mb-8 sm:mb-8 mb-8">
+                <!-- <p class="uppercase sofia-pro sm:text-15 text-[13px] tracking-widest sm:mb-5 mb-2">Company Strengths</p> -->
                 <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium">Our Core Strengths
                     Driving Success
                 </h1>
             </div>
-            <div class="grid lg:grid-cols-3 md:grid-cols-2 2xl:mx-20 grid-cols-1 gap-6">
-                <div class="flex flex-col items-center 2xl:pt-20 pt-16 px-8 pb-10 bg-white border border-solid">
-                    <Icon icon="mdi:power" class="2xl:text-7xl text-6xl" style="color: red" />
-                    <div class="2xl:mt-8 mt-5 text-center ">
-                        <h1 class="font-heading 2xl:text-28 text-xl mb-3">6 years of Expericence</h1>
+            <div class="lg:mb-24 mb-10 grid lg:grid-cols-3 md:grid-cols-2 2xl:mx-20 grid-cols-1 gap-6">
+                <div
+                    class="flex flex-col items-start 2xl:pt-10 pt-10 px-8 pb-10 bg-white border border-main-color border-solid">
+                    <div>
+                        <img src="../../assets/icons/search.png" class="h-10" alt="">
+                        <h1 class="font-heading 2xl:text-xl text-xl mt-2 mb-3">Detail-Oriented Professionalism </h1>
+                    </div>
+                    <div class="2xl:mt-8 mt-5 text-left ">
+
                         <div class="font-europa-light">
-                            <p class="2xl:text-base text-sm 2xl:mb-5 mb-3">With successful deliveries of 3D Still Image
-                                for Home
-                                projects in
-                                American,
-                                Australia...</p>
-                            <p class="2xl:text-base text-sm">Produced by creative communicators with great expertise in
-                                Design, we know which tools
-                                can
-                                outstanding the Home and excite your client, whether it is a single-family home or
-                                Apartment
-                                building</p>
+                            <!-- <p class="2xl:text-base text-sm 2xl:mb-5 mb-3">With a meticulous workflow and unwavering
+                                attention to detail, we are committed to delivering the highest quality products that
+                                meet the most demanding client requirements</p> -->
+                            <p class="2xl:text-base text-sm text-justify">With a meticulous workflow and unwavering
+                                attention to
+                                detail, we are committed to delivering the highest quality products that meet the most
+                                demanding client requirements.</p>
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col items-center 2xl:pt-20 pt-16 px-8 pb-10 bg-white border border-solid">
-                    <Icon icon="entypo:price-ribbon" class="2xl:text-7xl text-6xl" style="color: red" />
-                    <div class="2xl:mt-8 mt-5 text-center ">
-                        <h1 class="font-heading 2xl:text-28 text-xl mb-3">Completitive price</h1>
+                <div
+                    class="flex flex-col items-start 2xl:pt-10 pt-10 px-8 pb-10 bg-white border border-main-color border-solid">
+                    <div>
+                        <img src="../../assets/icons/rocket.png" class="h-10" alt="">
+                        <h1 class="font-heading 2xl:text-xl text-xl mt-2 mb-3">Optimized Cost-Effectiveness </h1>
+                    </div>
+                    <div class="2xl:mt-8 mt-5 text-left ">
+
                         <div class="font-europa-light">
-                            <p class="2xl:text-base text-sm 2xl:mb-5 mb-3">We live in Vietnam, a country famous for its
-                                abundant labor force, good
-                                prices and is currently the place where the world's largest technology companies have
-                                their factories located after China.</p>
-                            <p class="2xl:text-base text-sm">So If you work directly with us, you're getting the
-                                original
-                                "Factory" Price!</p>
+
+                            <p class="2xl:text-base text-sm">Leveraging the resources of Viet Nam, we provide
+                                competitive 3D services, enabling you to maxi mize your budget without com promising on
+                                exceptional quality. </p>
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col items-center 2xl:pt-20 pt-16 px-8 pb-10 bg-white border border-solid">
-                    <Icon icon="mdi:clock-outline" class="2xl:text-7xl text-6xl" style="color: red" />
-                    <div class="2xl:mt-8 mt-5 text-center ">
-                        <h1 class="font-heading 2xl:text-28 text-xl mb-3">Great Communication</h1>
+                <div
+                    class="flex flex-col items-start 2xl:pt-10 pt-10 px-8 pb-10 bg-white border border-main-color border-solid">
+                    <div>
+                        <img src="../../assets/icons/user.png" class="h-10" alt="">
+                        <h1 class="font-heading 2xl:text-xl text-xl mt-2 mb-3">Great Communication</h1>
+                    </div>
+                    <div class="2xl:mt-8 mt-5 text-left ">
                         <div class="font-europa-light">
-                            <p class="2xl:text-base text-sm 2xl:mb-5 mb-3">Some Architects were afraid of Outsourcing
-                                because the communication method
-                                is complicated and prolonging project time..</p>
-                            <p class="2xl:text-base text-sm">Problems resolved by our dedicated project management team
-                                who are there 24/7 to discuss
-                                with you as soon as you need.</p>
+                            <p class="2xl:text-base text-sm">We prioritize clear communica-tion and understand your
+                                needs, ensuring information is conveyed accurately and providing 24/7 support to address
+                                any concerns.</p>
                         </div>
                     </div>
                 </div>

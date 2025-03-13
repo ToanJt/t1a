@@ -43,56 +43,125 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class="bg-vr-light-gray md:pb-10 pb-6">
-        <section class="container mx-auto px-4">
-            <div class="lg:mb-24 mb-10 2xl:mx-20  grid-cols-1 md:gap-10 gap-6">
-                <h1 class="uppercase 2xl:text-28 text-xl mb-5">What we offer</h1>
-                <div class="grid grid-cols-3 gap-6 ">
-                    <div class="flex  flex-col items-center gap-6">
-                        <div class=" service-box relative">
-                            <img class=" w-full h-full sm:opacity-100 sm:static absolute object-cover"
-                                src="../../assets/images/Exterior-Services.jpg" alt="">
-                            <div
-                                class="blur-box transition-all cursor-pointer duration-300 absolute z-90 flex opacity-0 justify-center items-center top-0 left-0 right-0 bottom-0">
-                                <div class=" absolute top-0 left-0 right-0 bottom-0 bg-black opacity-60">
-                                </div>
+    <section class="bg-vr-light-gray lg:pt-24 pt-16 pb-16">
+        <section class=" mx-auto px-24">
+            <div class=" 2xl:mx-20  grid-cols-1 md:gap-10 gap-6">
+                <div class="flex justify-center">
+                    <h1 class="uppercase font-bold 2xl:text-28 text-xl mb-5 border-b-2 border-main-color ">What we offer
+                    </h1>
+                </div>
 
+                <div class="grid grid-cols-4 gap-3 ">
+                    <div class="flex  flex-col items-center gap-6">
+                        <div class="rounded-lg h-full overflow-hidden service-box relative">
+                            <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
+                                src="../../assets/images/exterior.jpg" alt="">
+                            <div
+                                class=" rounded-lg  transition-all cursor-pointer duration-300 absolute z-90 flex opacity-100 justify-center items-center top-0 left-0 right-0 bottom-0">
+                                <div>
+                                    <div class="rounded-lg  absolute top-0 left-0 right-0 bottom-0 bg-black opacity-60">
+                                    </div>
+                                    <div
+                                        class="absolute z-90  flex flex-col justify-center items-center top-0  left-0 right-0 bottom-0">
+                                        <p class="service-text text-xl uppercase text-white mb-2">
+                                            Exterior
+                                            Rendering
+                                        </p>
+                                        <div
+                                            class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
+                                            <p class=" uppercase text-[10px] font-heading text-white">See More</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="flex  flex-col items-center gap-6">
+                        <div class="rounded-lg h-full overflow-hidden service-box relative">
+                            <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
+                                src="../../assets/images/pov5.jpg" alt="">
+                            <div
+                                class=" rounded-lg  transition-all cursor-pointer duration-300 absolute z-90 flex opacity-100 justify-center items-center top-0 left-0 right-0 bottom-0">
+                                <div>
+                                    <div class="rounded-lg  absolute top-0 left-0 right-0 bottom-0 bg-black opacity-60">
+                                    </div>
+                                    <div
+                                        class="absolute z-90  flex flex-col justify-center items-center top-0  left-0 right-0 bottom-0">
+                                        <p class="service-text text-xl uppercase text-white mb-2">
+                                            Interior
+                                            Rendering
+                                        </p>
+                                        <div
+                                            class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
+                                            <p class=" uppercase text-[10px] font-heading text-white">See More</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- <button class="" ref="button">
                                 <i class="fa-solid fa-link"></i>
                             </button> -->
                         </div>
-                        <p class="service-text  text-xl uppercase">
-                            Exterior
-                            Rendering
-                        </p>
+                        <!--  -->
 
                     </div>
-                    <div class="flex flex-col items-center gap-6">
-                        <div class=" service-box relative">
-                            <img class=" w-full h-full sm:opacity-100 sm:static absolute object-cover"
-                                src="../../assets/images/Interior-Services.jpg" alt="">
+                    <div class="flex  flex-col items-center gap-6">
+                        <div class="rounded-lg h-full overflow-hidden service-box relative">
+                            <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
+                                src="../../assets/images/POV3_OPTIONAL.jpg" alt="">
                             <div
-                                class="blur-box transition-all cursor-pointer duration-300 absolute z-90 flex opacity-0 justify-center items-center top-0 left-0 right-0 bottom-0">
-                                <div class=" absolute top-0 left-0 right-0 bottom-0 bg-black opacity-60">
+                                class=" rounded-lg  transition-all cursor-pointer duration-300 absolute z-90 flex opacity-100 justify-center items-center top-0 left-0 right-0 bottom-0">
+                                <div>
+                                    <div class="rounded-lg  absolute top-0 left-0 right-0 bottom-0 bg-black opacity-60">
+                                    </div>
+                                    <div
+                                        class="absolute z-90  flex flex-col justify-center items-center top-0  left-0 right-0 bottom-0">
+                                        <p class="service-text text-xl uppercase text-white mb-2">
+                                            360°
+                                            Rendering
+                                        </p>
+                                        <div
+                                            class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
+                                            <p class=" uppercase text-[10px] font-heading text-white">See More</p>
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
+                            <!-- <button class="" ref="button">
+                                <i class="fa-solid fa-link"></i>
+                            </button> -->
                         </div>
-                        <p class="text-xl uppercase">Interior Rendering</p>
+                        <!--  -->
+
                     </div>
-                    <div class="flex flex-col items-center gap-6">
-                        <div class=" service-box relative">
-                            <img class=" w-full h-full sm:opacity-100 sm:static absolute object-cover"
-                                src="../../assets/images/Interior-Services.jpg" alt="">
+                    <div class="flex  flex-col items-center gap-6">
+                        <div class="rounded-lg h-full overflow-hidden service-box relative">
+                            <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
+                                src="../../assets/images/POV2.jpg" alt="">
                             <div
-                                class="blur-box transition-all cursor-pointer duration-300 absolute z-90 flex opacity-0 justify-center items-center top-0 left-0 right-0 bottom-0">
-                                <div class=" absolute top-0 left-0 right-0 bottom-0 bg-black opacity-60">
+                                class=" rounded-lg  transition-all cursor-pointer duration-300 absolute z-90 flex opacity-100 justify-center items-center top-0 left-0 right-0 bottom-0">
+                                <div>
+                                    <div class="rounded-lg  absolute top-0 left-0 right-0 bottom-0 bg-black opacity-60">
+                                    </div>
+                                    <div
+                                        class="absolute z-90 flex flex-col justify-center items-center top-0  left-0 right-0 bottom-0">
+                                        <p class="service-text text-xl uppercase text-white mb-2">
+                                            Animation
+                                        </p>
+                                        <div
+                                            class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
+                                            <p class=" uppercase text-[10px] font-heading text-white">See More</p>
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
+                            <!-- <button class="" ref="button">
+                                <i class="fa-solid fa-link"></i>
+                            </button> -->
                         </div>
-                        <p class="text-xl uppercase">360 Rendering</p>
+                        <!--  -->
+
                     </div>
                 </div>
 
@@ -139,6 +208,24 @@ button {
 }
 
 .service-box:hover .blur-box {
-    opacity: 100 !important;
+    opacity: 0 !important;
+}
+
+.service-box img {
+    scale: 1;
+    transition: 0.5s linear all;
+}
+
+.service-box:hover img {
+    scale: 1.25;
+}
+
+.service-box .btn {
+    transition: 0.3s linear all;
+}
+
+.service-box:hover .btn {
+    transition: 0.3s linear all;
+    background: #f15e22;
 }
 </style>

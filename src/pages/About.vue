@@ -26,7 +26,7 @@ const getIsActive = async () => {
     <div>
         <div class="bg-black ">
             <div class="relative">
-                <div class="w-screen relative lg:h-[600px] md:h-[500px] h-[400px] opacity-15 overflow-hidden ">
+                <div class="w-screen relative lg:h-[600px] md:h-[500px] h-[400px] opacity-25 overflow-hidden ">
                     <img class="w-full h-full bg-top object-cover" src="../assets/images/aboutus-bg.jpg" alt="">
                 </div>
                 <div

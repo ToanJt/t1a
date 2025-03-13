@@ -39,8 +39,8 @@ onMounted(async () => {
                 :modules="module" @swiper="onSwiper">
                 <SwiperSlide class="sm:pr-0 ssm:pr-8 pr-0" v-for="feedback in feedbacks">
                     <div class="relative grid sm:grid-cols-3 grid-cols-1 lg:gap-12 gap-2 2xl:mt-24 lg:mt-16 mt-8">
-                        <div class=" flex items-center">
-                            <img class="sm:w-auto w-[calc(100%-2rem)] object-cover col-span-1 rounded-3xl opacity-85"
+                        <div class=" flex items-start">
+                            <img class="sm:w-auto w-[calc(100%-2rem)] h-full object-cover col-span-1 rounded-3xl opacity-85"
                                 :src="feedback.avatar" loading="lazy" alt="avatar">
                         </div>
                         <div class="sm:col-span-2 my-6 lg:pr-20 pr-4">
@@ -62,7 +62,7 @@ onMounted(async () => {
                                 <p class=" lg:text-15 md:text-[13px] text-[11px] text-red-500 font-medium mb-1">{{
                                     feedback.customerName }}
                                 </p>
-                                <p class=" lg:text-15 md:text-[13px] text-[11px]">Construction company in {{
+                                <p class=" lg:text-15 md:text-[13px] text-[11px]">{{
                                     feedback.from }}</p>
                             </div>
                         </div>
