@@ -43,11 +43,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class="bg-vr-light-gray lg:pt-24 pt-16 pb-16">
+    <section class="bg-vr-light-gray lg:pt-24 pt-16 pb-24">
         <section class=" mx-auto px-24">
             <div class=" 2xl:mx-20  grid-cols-1 md:gap-10 gap-6">
-                <div class="flex justify-center">
-                    <h1 class="uppercase font-bold 2xl:text-28 text-xl mb-5 border-b-2 border-main-color ">What we offer
+                <div class="flex justify-center lg:mb-8 sm:mb-8 mb-8">
+                    <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium">What we offer
                     </h1>
                 </div>
 
