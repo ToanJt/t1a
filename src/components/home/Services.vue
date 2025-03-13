@@ -55,7 +55,7 @@ onMounted(() => {
                     <div class="flex  flex-col items-center gap-6">
                         <div class="rounded-lg h-full overflow-hidden service-box relative">
                             <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
-                                src="../../assets/images/exterior.jpg" alt="">
+                                src="../../assets/images/exterior-min.jpg" alt="">
                             <div
                                 class=" rounded-lg  transition-all cursor-pointer duration-300 absolute z-90 flex opacity-100 justify-center items-center top-0 left-0 right-0 bottom-0">
                                 <div>
@@ -80,7 +80,7 @@ onMounted(() => {
                     <div class="flex  flex-col items-center gap-6">
                         <div class="rounded-lg h-full overflow-hidden service-box relative">
                             <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
-                                src="../../assets/images/pov5.jpg" alt="">
+                                src="../../assets/images/pov5-min.jpg" alt="">
                             <div
                                 class=" rounded-lg  transition-all cursor-pointer duration-300 absolute z-90 flex opacity-100 justify-center items-center top-0 left-0 right-0 bottom-0">
                                 <div>
@@ -109,7 +109,7 @@ onMounted(() => {
                     <div class="flex  flex-col items-center gap-6">
                         <div class="rounded-lg h-full overflow-hidden service-box relative">
                             <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
-                                src="../../assets/images/POV3_OPTIONAL.jpg" alt="">
+                                src="../../assets/images/POV3_OPTIONAL-min.jpg" alt="">
                             <div
                                 class=" rounded-lg  transition-all cursor-pointer duration-300 absolute z-90 flex opacity-100 justify-center items-center top-0 left-0 right-0 bottom-0">
                                 <div>
@@ -138,7 +138,7 @@ onMounted(() => {
                     <div class="flex  flex-col items-center gap-6">
                         <div class="rounded-lg h-full overflow-hidden service-box relative">
                             <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
-                                src="../../assets/images/POV2.jpg" alt="">
+                                src="../../assets/images/POV2-min.jpg" alt="">
                             <div
                                 class=" rounded-lg  transition-all cursor-pointer duration-300 absolute z-90 flex opacity-100 justify-center items-center top-0 left-0 right-0 bottom-0">
                                 <div>
@@ -156,12 +156,7 @@ onMounted(() => {
                                     </div>
                                 </div>
                             </div>
-                            <!-- <button class="" ref="button">
-                                <i class="fa-solid fa-link"></i>
-                            </button> -->
                         </div>
-                        <!--  -->
-
                     </div>
                 </div>
 
