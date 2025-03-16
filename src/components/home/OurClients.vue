@@ -1,5 +1,5 @@
 <template>
-    <main class=" mx-auto container px-4 lg:pb-24 pb-10 lg:mt-24 mt-16">
+    <main class=" mx-auto container sm:px-4 px-0 lg:pb-24 pb-10 lg:mt-24 mt-16">
         <section v-motion :initial="{
             opacity: 0,
             scale: 0.6,
@@ -18,7 +18,7 @@
                 <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium">Our Featured Clients
                 </h1>
             </div>
-            <div class="slide">
+            <div class="slide container !w-screen mx-auto">
                 <div class="slide-decoration-left"></div>
                 <div class="globaln_img">
                     <img class="lg:h-12 md:h-8 sm:h-10 h-8 w-48" src="../../assets/images/logo2.png" alt="">
@@ -77,7 +77,7 @@
 .globaln_img {
     display: flex;
     width: calc(192px * 10);
-    animation: scroll 28s linear infinite;
+    animation: scroll 3s linear infinite;
     will-change: transform;
 }
 
@@ -95,4 +95,44 @@
         transform: translateX(calc(-238px * 5))
     }
 }
+
+/* 
+@media only screen and (max-width: 1340px) {
+    .slide {
+        max-width: 62rem;
+    }
+}
+
+@media only screen and (max-width: 972px) {
+    .slide {
+        max-width: 52rem;
+    }
+
+    .slide_global-network img {
+        height: 2rem;
+    }
+
+}
+
+@media only screen and (max-width: 820px) {
+    .slide {
+        max-width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 640px) {
+    .slide {
+        max-width: 100%;
+    }
+
+    .slide_global-network img {
+        height: 1.5rem;
+        margin-left: 2rem;
+    }
+
+    .space-components {
+        margin-bottom: 5rem;
+    }
+} */
 </style>

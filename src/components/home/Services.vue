@@ -44,7 +44,7 @@ onMounted(() => {
 
 <template>
     <section class="bg-vr-light-gray lg:pt-24 pt-16 pb-24">
-        <section class="container 2xl:w-[1800px] mx-auto ">
+        <section class="container 2xl:w-[1800px] w-full mx-auto ">
             <div class="  md:h-full px-4 mx-0 grid-cols-1 md:gap-10 gap-6">
                 <div class="flex justify-center lg:mb-8 sm:mb-8 mb-8">
                     <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium">What We Offer
