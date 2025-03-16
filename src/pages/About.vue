@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import WhoWeAre from '../components/about/WhoWeAre.vue';
 import TeamSquad from '../components/about/TeamSquad.vue';
 import Career from '../components/about/Career.vue';
 import { onTop } from '../functions/functions';
@@ -76,7 +75,6 @@ const getIsActive = async () => {
                     project and would like to collaborate!</p>
             </div>
         </div>
-        <!-- <WhoWeAre></WhoWeAre> -->
         <Career></Career>
         <TeamSquad v-if="teamActive"></TeamSquad>
 
