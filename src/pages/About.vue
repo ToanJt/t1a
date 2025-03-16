@@ -23,33 +23,63 @@ const getIsActive = async () => {
 </script>
 
 <template>
-    <div>
-        <div class="bg-black ">
-            <div class="relative">
-                <div class="w-screen relative lg:h-[600px] md:h-[500px] h-[400px] opacity-25 overflow-hidden ">
-                    <img class="w-full h-full bg-top object-cover" src="../assets/images/aboutus-bg.jpg" alt="">
+    <div class="w-screen">
+        <div class="bg-black w-full py-32 sm:pb-32 pb-20">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-3 grid-cols-5 lg:gap-16 gap-6">
+                    <!-- <div class=" col-span-1"> -->
+                    <img class="md:col-span-1 col-span-2" src="../assets/images/avt.png" alt="">
+                    <!-- </div> -->
+                    <div
+                        class="md:col-span-2 col-span-3 w-full h-full justify-center text-light-dark flex flex-col items-start ">
+                        <h1
+                            class="2xl:text-8xl text-white lg:text-6xl md:text-5xl sm:text-4xl text-3xl sofia-medium uppercase 2xl:mb-20 sm:mb-10 mb-5">
+                            About us</h1>
+                        <p class="text-justify 2xl:text-base lg:text-15 sm:text-sm text-[12px]">Founded by Trung Le in
+                            2021,
+                            LTR
+                            Studio provides high-quality rendering services worldwide for architects, designers, real
+                            estate
+                            investors, developers, and marketing agencies.
+                        </p>
+                        <p class="sm:block hidden text-justify 2xl:text-base lg:text-15 sm:text-sm text-[12px] my-5">We
+                            have a team of
+                            experienced 3D
+                            artists, architects, and designers who work seamlessly
+                            together
+                            to deliver visually compelling and technically accurate renderings that communcate design
+                            ideas
+                            clearly and strikingly, ensuring complete customer satisfaction.
+                        </p>
+                        <p class="sm:block hidden text-justify 2xl:text-base lg:text-15 sm:text-sm text-[12px]">Let us
+                            know if you have
+                            an exciting
+                            project and would like to collaborate!</p>
+                    </div>
+
                 </div>
-                <div
-                    class="container w-full h-full mx-auto md:px-20 px-4 absolute fixHeight top-0 left-0 right-0 bottom-0 fix-firstScreen justify-center text-white flex flex-col items-start ">
-                    <h1
-                        class="2xl:text-8xl lg:text-6xl md:text-5xl sm:text-4xl text-3xl sofia-medium uppercase 2xl:mb-20 sm:mb-10 mb-5">
-                        About us</h1>
-                    <p class="md:w-2/3 2xl:text-base lg:text-15 sm:text-sm text-[12px]">Lorem ipsum, dolor sit amet
-                        consectetur
-                        adipisicing
-                        elit.
-                        Tenetur
-                        ducimus,
-                        perspiciatis nobis
-                        cupiditate maxime deserunt? Qui error, quos rem placeat omnis quasi sit ratione vel voluptas
-                        saepe
-                        odit, ea aspernatur!</p>
-                </div>
+                <p
+                    class="sm:hidden block text-light-dark text-justify 2xl:text-base lg:text-15 sm:text-sm text-[12px] my-5">
+                    We
+                    have a team of
+                    experienced 3D
+                    artists, architects, and designers who work seamlessly
+                    together
+                    to deliver visually compelling and technically accurate renderings that communcate design
+                    ideas
+                    clearly and strikingly, ensuring complete customer satisfaction.
+                </p>
+                <p class="sm:hidden block text-light-dark text-justify 2xl:text-base lg:text-15 sm:text-sm text-[12px]">
+                    Let us
+                    know if you have
+                    an exciting
+                    project and would like to collaborate!</p>
             </div>
         </div>
-        <WhoWeAre></WhoWeAre>
-        <TeamSquad v-if="teamActive"></TeamSquad>
+        <!-- <WhoWeAre></WhoWeAre> -->
         <Career></Career>
+        <TeamSquad v-if="teamActive"></TeamSquad>
+
     </div>
 </template>
 

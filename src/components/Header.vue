@@ -64,7 +64,7 @@ onMounted(() => {
             class="fixed px-4 mix-blend-exclusion text-white z-20 top-0 left-0 right-0 container mx-auto h-28 flex items-center justify-between">
             <router-link to="/">
                 <!-- <h1 class="font-roboto lg:text-6xl text-5xl text-white">T1A</h1> -->
-                <img src="../assets/images/logo.png" class="h-14" alt="">
+                <img src="../assets/images/logo.png" class="lg:h-14 md:h-10 h-8" alt="">
             </router-link>
             <div @click="activeHandle()" class="lg:hidden flex relative">
                 <i class="text-2xl fa-solid fa-bars"></i>

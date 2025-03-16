@@ -44,20 +44,20 @@ onMounted(() => {
 
 <template>
     <section class="bg-vr-light-gray lg:pt-24 pt-16 pb-24">
-        <section class=" mx-auto px-24">
-            <div class=" 2xl:mx-20  grid-cols-1 md:gap-10 gap-6">
+        <section class="container 2xl:w-[1800px] mx-auto ">
+            <div class="  md:h-full px-4 mx-0 grid-cols-1 md:gap-10 gap-6">
                 <div class="flex justify-center lg:mb-8 sm:mb-8 mb-8">
                     <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium">What We Offer
                     </h1>
                 </div>
 
-                <div class="grid grid-cols-4 gap-3 ">
-                    <div class="flex  flex-col items-center gap-6">
-                        <div class="rounded-lg h-full overflow-hidden service-box relative">
+                <div class="w-full h-full grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-3 ">
+                    <div class="flex flex-col items-center gap-6">
+                        <div class="rounded-lg w-full h-96 overflow-hidden service-box relative">
                             <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
                                 src="../../assets/images/exterior-min.jpg" alt="">
                             <div
-                                class=" rounded-lg  transition-all cursor-pointer duration-300 absolute z-90 flex opacity-100 justify-center items-center top-0 left-0 right-0 bottom-0">
+                                class=" rounded-lg transition-all cursor-pointer duration-300 absolute z-90 flex opacity-100 justify-center items-center top-0 left-0 right-0 bottom-0">
                                 <div>
                                     <div class="rounded-lg  absolute top-0 left-0 right-0 bottom-0 bg-black opacity-60">
                                     </div>
@@ -78,7 +78,7 @@ onMounted(() => {
 
                     </div>
                     <div class="flex  flex-col items-center gap-6">
-                        <div class="rounded-lg h-full overflow-hidden service-box relative">
+                        <div class="rounded-lg w-full h-96 overflow-hidden service-box relative">
                             <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
                                 src="../../assets/images/pov5-min.jpg" alt="">
                             <div
@@ -106,8 +106,8 @@ onMounted(() => {
                         <!--  -->
 
                     </div>
-                    <div class="flex  flex-col items-center gap-6">
-                        <div class="rounded-lg h-full overflow-hidden service-box relative">
+                    <div class="flex flex-col items-center gap-6">
+                        <div class="rounded-lg w-full h-96 overflow-hidden service-box relative">
                             <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
                                 src="../../assets/images/POV3_OPTIONAL-min.jpg" alt="">
                             <div
@@ -136,7 +136,7 @@ onMounted(() => {
 
                     </div>
                     <div class="flex  flex-col items-center gap-6">
-                        <div class="rounded-lg h-full overflow-hidden service-box relative">
+                        <div class="rounded-lg w-full h-96 overflow-hidden service-box relative">
                             <img class=" w-full h-full rounded-lg sm:opacity-100 sm:static absolute object-cover"
                                 src="../../assets/images/POV2-min.jpg" alt="">
                             <div

@@ -54,6 +54,7 @@ function showProjectOption(params: number) {
             return item.is360 === is360.value;
         })
     }
+
     // Type Project
     else if (params >= 1 && params < 4) {
         return projects.value.filter((item) => {
@@ -116,40 +117,17 @@ function activeHandle(optionNumber: number) {
 </script>
 
 <template>
-    <div>
-        <div class="bg-black ">
-            <div class="relative">
-                <div class="w-screen relative lg:h-[600px] md:h-[500px] h-[400px] opacity-15 overflow-hidden ">
-                    <img class="w-full h-full bg-top object-cover" src="../assets/images/projects-bg.jpg" alt="">
-                </div>
-                <div
-                    class="container w-full h-full fixHeight mx-auto md:px-20 px-4 absolute top-0 left-0 right-0 fix-firstScreen bottom-0 justify-center text-white flex flex-col items-start">
-                    <h1
-                        class="2xl:text-8xl lg:text-6xl md:text-5xl sm:text-4xl text-3xl sofia-medium uppercase 2xl:mb-20 sm:mb-10 mb-5">
-                        Portfolio</h1>
-                    <p class="md:w-2/3 2xl:text-base lg:text-15 sm:text-sm text-[12px]">Lorem ipsum, dolor sit amet
-                        consectetur
-                        adipisicing
-                        elit.
-                        Tenetur
-                        ducimus,
-                        perspiciatis nobis
-                        cupiditate maxime deserunt? Qui error, quos rem placeat omnis quasi sit ratione vel voluptas
-                        saepe
-                        odit, ea aspernatur!</p>
-                </div>
-            </div>
-        </div>
+    <div class="w-screen">
+
         <div class="bg-vr-light-gray ">
-            <div class="container mx-auto md:px-20 px-4 lg:pt-24 pt-16 lg:pb-36 pb-20">
+            <div class="container mx-auto md:px-20 px-4 lg:pt-40 pt-16 lg:pb-36 pb-20">
                 <div class="flex flex-col items-center">
-                    <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium sm:mb-5 mb-2">Our
-                        Latest
-                        Articles & Resources</h1>
-                    <p class="uppercase text-center sofia-pro sm:text-15 text-[13px] tracking-widest">
-                        Design Matters: Exploring the Impact of Architecture on Our Lives</p>
+                    <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium ">Our
+                        Projects</h1>
+                    <!-- <p class="uppercase text-center sofia-pro sm:text-15 text-[13px] tracking-widest">
+                        Design Matters: Exploring the Impact of Architecture on Our Lives</p> -->
                     <ul
-                        class="flex flex-wrap 2xl:gap-x-12 gap-x-10 gap-y-2 justify-center 2xl:text-2xl lg:text-xl md:text-lg text-sm lg:pb-6 pb-3 2xl:mt-24 lg:mt-16 mt-8 border-b border-solid uppercase text-zinc-500">
+                        class="flex flex-wrap 2xl:gap-x-12 gap-x-10 gap-y-2 justify-center 2xl:text-2xl lg:text-xl md:text-lg text-sm lg:mt-12 mt-8 uppercase text-zinc-500">
                         <li @click="activeHandle(0)" :class="{ 'activeOption': isActive[0] }"
                             class="hover:text-black transition-colors duration-500 cursor-pointer ">
                             All</li>
@@ -163,9 +141,13 @@ function activeHandle(optionNumber: number) {
                             class="hover:text-black transition-colors duration-500 cursor-pointer">
                             360°
                         </li>
+                        <li @click="activeHandle(7)" :class="{ 'activeOption': isActive[7] }"
+                            class="hover:text-black transition-colors duration-500 cursor-pointer">
+                            Animation
+                        </li>
                     </ul>
                 </div>
-                <div class="grid 2xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 lg:mt-20 md:mt-16 mt-8">
+                <div class="grid 2xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 mt-8">
                     <div v-for="(column, index) in galleries" :key="index" class="column col-span-1 gallery">
                         <div class="relative project-image cursor-pointer overflow-hidden mb-6"
                             v-for="(image, key) in column" :key="key">
@@ -192,23 +174,25 @@ function activeHandle(optionNumber: number) {
                         </div>
                     </div>
                 </div>
-                <div
-                    class="bg-black lg:mt-20 md:mt-10 mt-2 lg:static relative text-white flex 2xl:gap-32 lg:gap-16 gap-8">
-                    <img class="lg:mt-24 lg:opacity-100 opacity-30 mt-0 lg:static absolute left-0 right-0 top-0 bottom-0 2xl:w-96 lg:w-60 w-full 2xl:h-96 lg:h-[21rem] h-full object-cover"
-                        src="../assets/images/bg-contact.jpg" alt="">
-                    <div class="lg:mt-24 p-8 lg:static relative">
-                        <h1
-                            class="text-left lg:mr-4 mr-0 2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl sofia-medium sm:mb-5 mb-25">
-                            Our Latest Articles & Resources</h1>
-                        <p class="uppercase lg:mr-4 mr-0 text-left sofia-pro sm:text-15 text-[13px] tracking-widest">
-                            Design Matters: Exploring the Impact of Architecture on Our Lives</p>
-                        <div class=" flex mt-20 lg:mr-4 mr-0 lg:mb-8 md:mb-5 mb-2">
+                <div class="bg-black grid grid-cols-5 lg:mt-20 md:mt-10 mt-2 text-white ">
+                    <img class="lg:col-span-2 lg:block hidden p-8 object-fill w-full h-full "
+                        src="../assets/images/VIEW01_POOL-min.jpg" alt="">
+                    <div class="lg:col-span-3 col-span-5 py-8 pr-8 lg:pl-0 pl-8 flex flex-col justify-between">
+                        <div>
+                            <h1
+                                class="text-left lg:mr-4 mr-0 2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl sofia-medium sm:mb-5 mb-25">
+                                Are You Ready To Get Started?</h1>
+                            <p
+                                class="uppercase lg:mr-4 mr-0 text-left sofia-pro sm:text-15 text-[13px] tracking-widest lg:pb-0 pb-5">
+                                Leave Your Email And We'll Contact Your Right Away.</p>
+                        </div>
+                        <div class=" flex lg:mr-4 mr-0">
                             <input
                                 class="bg-white lg:text-[1rem] text-sm 2xl:w-80 w-full md:px-4 px-3 outline-none text-black"
                                 placeholder="Your Email Address" type="email">
                             <div class="sm:p-2 p-1 bg-white">
                                 <button
-                                    class="bg-black lg:text-[1rem] sm:text-sm text-[12px] hover:scale-[0.9] text-white transition-all duration-500 border-black border-solid border-[1px] sofia-pro uppercase md:px-4 px-2 md:py-3 py-2 md:w-40 w-32">Send
+                                    class="bg-main-color lg:text-[1rem] sm:text-sm text-[12px] hover:scale-[0.9] text-white transition-all duration-500 sofia-pro uppercase md:px-4 px-2 md:py-3 py-2 md:w-40 w-32">Send
                                     For Us</button>
                             </div>
                         </div>

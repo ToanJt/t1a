@@ -11,7 +11,7 @@
         }" class="slide_global-network space-components">
             <div class="flex flex-col items-center lg:mb-24 sm:mb-16 mb-8">
                 <p class="uppercase text-center sofia-pro sm:text-15 text-[13px] tracking-widest sm:mb-5 mb-2">With over
-                    35
+                    45
                     clients and 500
                     completed
                     projects</p>
@@ -44,7 +44,6 @@
     flex-direction: column;
     align-items: center;
     transition: all 1.5s;
-    padding: 0 2rem;
 }
 
 
@@ -78,7 +77,7 @@
 .globaln_img {
     display: flex;
     width: calc(192px * 10);
-    animation: scroll 40s linear infinite;
+    animation: scroll 28s linear infinite;
     will-change: transform;
 }
 
@@ -94,48 +93,6 @@
 
     100% {
         transform: translateX(calc(-238px * 5))
-    }
-}
-
-@media only screen and (max-width: 1340px) {
-    .slide {
-        max-width: 62rem;
-    }
-}
-
-@media only screen and (max-width: 972px) {
-    .slide {
-        max-width: 52rem;
-    }
-
-    .slide_global-network img {
-        height: 2rem;
-    }
-
-    .title h1 {
-        font-size: 3rem;
-    }
-}
-
-@media only screen and (max-width: 820px) {
-    .slide {
-        max-width: 100%;
-    }
-
-}
-
-@media only screen and (max-width: 640px) {
-    .slide {
-        max-width: 100%;
-    }
-
-    .slide_global-network img {
-        height: 1.5rem;
-        margin-left: 2rem;
-    }
-
-    .space-components {
-        margin-bottom: 5rem;
     }
 }
 </style>

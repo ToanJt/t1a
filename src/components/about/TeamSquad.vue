@@ -18,7 +18,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="lg:mb-24 mb-16 bg-black">
+    <div class=" bg-black">
         <div class="px-4">
             <div class="container mx-auto 2xl:px-24 text-white lg:pb-24 pb-16">
                 <div class="grid 2xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 lg:pt-24 pt-16">
