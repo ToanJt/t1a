@@ -77,7 +77,7 @@
 .globaln_img {
     display: flex;
     width: calc(192px * 10);
-    animation: scroll 3s linear infinite;
+    animation: scroll 28s linear infinite;
     will-change: transform;
 }
 
