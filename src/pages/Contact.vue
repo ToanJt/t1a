@@ -36,31 +36,40 @@ onMounted(async () => {
 
         <div class="bg-black ">
             <div class="relative">
-                <div class="w-screen relative lg:h-[600px] md:h-[500px] h-[400px] opacity-25 overflow-hidden ">
-                    <img class="w-full h-full bg-top object-cover" src="../assets/images/bg-about.jpg" alt="">
+                <div class="w-screen relative lg:h-[400px] md:h-[350px] h-[300px] opacity-65 overflow-hidden ">
+                    <img class="light-bulb w-full h-full bg-top object-cover lg:object-center md:object-[-200px] "
+                        src="../assets/images/bgr-contact.jpg" alt="">
                 </div>
                 <div
-                    class="container w-full h-full fixHeight mx-auto md:px-20 px-4 absolute top-0 left-0 right-0 bottom-0 fix-firstScreen justify-center text-white flex flex-col items-start">
-                    <h1
-                        class="2xl:text-8xl lg:text-6xl md:text-5xl sm:text-4xl text-3xl sofia-medium uppercase 2xl:mb-20 sm:mb-10 mb-5">
-                        Contact</h1>
-                    <ul class="flex gap-6 text-2xl pb-6">
-                        <a :href="contact.facebookLink">
-                            <Icon
-                                class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-blue-600 transition-all"
-                                icon="ic:baseline-facebook" />
-                        </a>
-                        <a :href="contact.whatsappLink">
-                            <Icon
-                                class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-green-600 transition-all"
-                                icon="ic:baseline-whatsapp" />
-                        </a>
-                        <a :href="contact.instagramLink">
-                            <Icon
-                                class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-pink-600 transition-all"
-                                icon="dashicons:instagram" />
-                        </a>
-                    </ul>
+                    class="container px-4 w-full h-full fixHeight mx-auto lg:pb-20 md:pb-16 pb-10 absolute top-0 left-0 right-0 bottom-0 fix-firstScreen text-white flex flex-col justify-end">
+                    <p class="uppercase sofia-pro sm:text-15 text-[13px] tracking-widest sm:mb-5 mb-2">Let's
+                        Talk</p>
+                    <div
+                        class="flex sm:flex-row flex-col sm:items-center items-start xl:gap-20 lg:gap-6 sm:gap-12 gap-6">
+                        <div>
+
+                            <h1
+                                class="2xl:text-7xl xl:text-5xl lg:text-4xl md:text-4xl sm:text-4xl text-3xl sofia-medium uppercase ">
+                                Contact</h1>
+                        </div>
+                        <ul class="flex gap-6 text-2xl ">
+                            <a :href="contact.facebookLink">
+                                <Icon
+                                    class="xl:text-3xl sm:text-2xl text-xl cursor-pointer hover:text-blue-600 transition-all"
+                                    icon="ic:baseline-facebook" />
+                            </a>
+                            <a :href="contact.whatsappLink">
+                                <Icon
+                                    class="xl:text-3xl sm:text-2xl text-xl cursor-pointer hover:text-green-600 transition-all"
+                                    icon="ic:baseline-whatsapp" />
+                            </a>
+                            <a :href="contact.instagramLink">
+                                <Icon
+                                    class="xl:text-3xl sm:text-2xl text-xl cursor-pointer hover:text-pink-600 transition-all"
+                                    icon="dashicons:instagram" />
+                            </a>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -133,5 +142,77 @@ onMounted(async () => {
 <style scoped>
 .formBox {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media only screen and (max-width: 980px) {
+    .light-bulb {
+        object-position: -220px;
+    }
+}
+
+@media only screen and (max-width: 935px) {
+    .light-bulb {
+        object-position: -240px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .light-bulb {
+        object-position: -260px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .light-bulb {
+        object-position: -280px;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+    .light-bulb {
+        object-position: -310px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .light-bulb {
+        object-position: -180px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .light-bulb {
+        object-position: -210px;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .light-bulb {
+        object-position: -230px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .light-bulb {
+        object-position: -360px;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .light-bulb {
+        object-position: -400px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .light-bulb {
+        object-position: -450px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .light-bulb {
+        object-position: -450px;
+    }
 }
 </style>

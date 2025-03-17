@@ -32,7 +32,7 @@ const getIsActive = async () => {
                     <div
                         class="md:col-span-2 col-span-3 w-full h-full justify-center text-light-dark flex flex-col items-start ">
                         <h1
-                            class="2xl:text-8xl text-white lg:text-6xl md:text-5xl sm:text-4xl text-3xl sofia-medium uppercase 2xl:mb-20 sm:mb-10 mb-5">
+                            class="2xl:text-7xl xl:text-5xl lg:text-4xl md:text-4xl sm:text-4xl text-3xl text-white sofia-medium uppercase 2xl:mb-20 sm:mb-10 mb-5">
                             About us</h1>
                         <p class="text-justify 2xl:text-base lg:text-15 sm:text-sm text-[12px]">Founded by Trung Le in
                             2021,
