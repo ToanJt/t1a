@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref, watch, reactive } from 'vue';
 import gsap from 'gsap';
 import { Icon } from '@iconify/vue'
 import { useRoute } from 'vue-router';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebaseConfig';
 
 const isActiveNavbar = ref(false);
 const route = useRoute();
@@ -10,7 +12,12 @@ const route = useRoute();
 const activeHandle = () => {
     isActiveNavbar.value = !isActiveNavbar.value;
 }
-
+const infomation = reactive({
+    email: '',
+    facebookLink: '',
+    instagramLink: '',
+    whatsappLink: '',
+})
 const setDefaultAnimation = () => {
     gsap.timeline().set('.item', {
         x: -100,
@@ -54,8 +61,16 @@ watch(isActiveNavbar, () => {
     }
 })
 
-onMounted(() => {
+onMounted(async () => {
     setDefaultAnimation();
+
+    const getInformation = await getDocs(collection(db, 'contacts'));
+    getInformation.forEach((item) => {
+        infomation.email = item.data().email;
+        infomation.facebookLink = item.data().facebook;
+        infomation.instagramLink = item.data().instagram;
+        infomation.whatsappLink = item.data().whatsapp;
+    })
 })
 </script>
 <template>
@@ -75,17 +90,17 @@ onMounted(() => {
                 <router-link to="/about">About Us</router-link>
                 <router-link to="/contact">Contact</router-link>
                 <div class="flex items-center gap-3">
-                    <a href="">
+                    <a :href="infomation.facebookLink" target="_blank">
                         <Icon
                             class=" opacity-50 hover:opacity-100 text-white transition-colors duration-500 hover:text-blue-600"
                             icon="ant-design:facebook-filled" width="1em" height="1em" />
                     </a>
-                    <a href="">
+                    <a :href="infomation.instagramLink" target="_blank">
                         <Icon
                             class=" opacity-50 hover:opacity-100 text-white transition-colors duration-500 hover:text-pink-600"
                             icon="ri:instagram-fill" width="1em" height="1em" />
                     </a>
-                    <a href="">
+                    <a :href="infomation.whatsappLink" target="_blank">
                         <Icon
                             class=" opacity-50 hover:opacity-100 text-white transition-colors duration-500 hover:text-green-600"
                             icon="mingcute:whatsapp-fill" width="1em" height="1em" />

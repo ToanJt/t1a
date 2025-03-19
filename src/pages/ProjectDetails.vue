@@ -15,10 +15,12 @@ const projectDetails = reactive({
     heightOrigin: '',
     description: '',
     client: '',
+    location: '',
     year: '',
     type: '',
     size: '',
     is360: false,
+    isAnimation: false,
     link360: '',
     images: <string[]>([]),
 });
@@ -44,10 +46,12 @@ onMounted(async () => {
             projectDetails.heightOrigin = doc.data().heightOrigin;
             projectDetails.description = doc.data().description;
             projectDetails.client = doc.data().client;
+            projectDetails.location = doc.data().location;
             projectDetails.year = doc.data().year;
             projectDetails.type = doc.data().type;
             projectDetails.size = doc.data().size;
             projectDetails.is360 = doc.data().is360;
+            projectDetails.isAnimation = doc.data().isAnimation;
             projectDetails.link360 = doc.data().link360;
             doc.data().images.forEach((img: string) => {
                 projectDetails.images.push(img);
@@ -71,19 +75,21 @@ function getUrl() {
 <template>
     <div class="w-screen">
         <div class="lg:pb-40 sm:pb-20 pb-16 lg:pt-60 md:pt-52 pt-36 container mx-auto px-4">
-            <h1 class="md:text-6xl sm:text-5xl text-4xl sofia-medium">{{ projectDetails.name }} <span
-                    v-if="projectDetails.is360" class="text-blue-500 text-sm align-top">360°</span></h1>
+            <h1 class="md:text-6xl sm:text-5xl text-4xl sofia-medium">{{ projectDetails.name }}
+                <span v-if="projectDetails.is360" class="text-blue-500 text-sm align-top">360°</span>
+                <span v-if="projectDetails.isAnimation" class="text-red-500 text-sm align-top"> & Animation</span>
+            </h1>
             <div class="flex mt-16">
                 <div class="mr-16">
                     <p class="md:text-xl text-base sofia-medium mb-3">Client:</p>
                     <p class="md:text-xl text-base sofia-medium mb-3">Year:</p>
-                    <p class="md:text-xl text-base sofia-medium mb-3">Size:</p>
+                    <p class="md:text-xl text-base sofia-medium mb-3">Location:</p>
                     <p class="md:text-xl text-base sofia-medium mb-3">Description:</p>
                 </div>
                 <div>
                     <p class="md:text-lg text-sm sofia-light mb-3 text-[#727272]">{{ projectDetails.client }}</p>
                     <p class="md:text-lg text-sm sofia-light mb-3 text-[#727272]">{{ projectDetails.year }}</p>
-                    <p class="md:text-lg text-sm sofia-light mb-3 text-[#727272]">{{ projectDetails.size }}</p>
+                    <p class="md:text-lg text-sm sofia-light mb-3 text-[#727272]">{{ projectDetails.location }}</p>
                     <p class="md:text-lg text-sm sm:text-left text-justify sofia-light mb-3 text-[#727272]">{{
                         projectDetails.description }}</p>
                 </div>

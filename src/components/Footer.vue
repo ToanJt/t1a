@@ -103,12 +103,8 @@ onMounted(async () => {
                                     For Us</button>
                             </div>
                         </div>
-                        <p class="text-sm sm:block hidden text-light-dark ">Shape stunning interiors and exteriors with
-                            the Flowbase
-                            team.<br> Fresh
-                            ideas
-                            delivered to your
-                            inbox today.</p>
+                        <p class="text-sm sm:block hidden text-light-dark ">Start your project today. Just leave your
+                            email, and we'll contact you promptly.</p>
                     </div>
                     <div class="sm:block hidden col-span-2">
                         <p class="2xl:text-2xl lg:text-xl text-md sofia-bold lg:mb-4 mb-1">
@@ -135,17 +131,17 @@ onMounted(async () => {
                 <div class="flex justify-between mt-8">
                     <p class="lg:text-[1rem] text-sm uppercase">2024 TrungTeam®.</p>
                     <ul class="flex gap-4 2xl:mr-20 mr-0">
-                        <a :href="infomation.facebookLink">
+                        <a :href="infomation.facebookLink" target="_blank">
                             <Icon
                                 class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-blue-600 transition-all"
                                 icon="ic:baseline-facebook" />
                         </a>
-                        <a :href="infomation.whatsappLink">
+                        <a :href="infomation.whatsappLink" target="_blank">
                             <Icon
                                 class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-green-600 transition-all"
                                 icon="ic:baseline-whatsapp" />
                         </a>
-                        <a :href="infomation.instagramLink">
+                        <a :href="infomation.instagramLink" target="_blank">
                             <Icon
                                 class="lg:text-3xl md:text-2xl text-xl cursor-pointer hover:text-pink-600 transition-all"
                                 icon="dashicons:instagram" />

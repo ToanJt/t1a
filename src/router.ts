@@ -16,6 +16,12 @@ const routes = [
         component: () => import("./pages/Projects.vue"),
       },
       {
+        path: ":type",
+        name: "project-types",
+        component: () => import("../src/pages/Projects.vue"),
+        props: true,
+      },
+      {
         path: ":id",
         name: "project-details",
         component: () => import("../src/pages/ProjectDetails.vue"),

@@ -6,17 +6,42 @@ import { onTop, createGalleries, convertToImageData } from '../functions/functio
 import type { ImageData } from '../functions/interface';
 import { db } from '../firebaseConfig'
 import { getDocs, collection, DocumentData } from 'firebase/firestore';
+import { useRoute } from 'vue-router';
 
-
+const route = useRoute();
 const images = ref<ImageData[]>([]);
 const projects = ref<DocumentData[]>([]);
-const isActive = ref<Array<boolean>>([true, false, false, false, false, false, false, false]);
+const isActive = ref<Array<boolean>>([false, false, false, false, false, false]);
 const currentOption = ref<number>(0);
 const projectType = ref<string>('all');
 const projectSize = ref<string>('');
 const is360 = ref<boolean>();
+const isAnimation = ref<boolean>();
+
+
 
 onMounted(async () => {
+    if (route.params.type) {
+        projectType.value = String(route.params.type);
+    }
+    if (String(route.params.type) === 'exterior') {
+        isActive.value[2] = true;
+        currentOption.value = 2;
+    } else if (String(route.params.type) === 'interior') {
+        isActive.value[3] = true;
+        currentOption.value = 3;
+    } else if (String(route.params.type) === '360') {
+        isActive.value[4] = true;
+        is360.value = true;
+        currentOption.value = 4;
+    } else if (String(route.params.type) === 'animation') {
+        isActive.value[5] = true;
+        isAnimation.value = true;
+        currentOption.value = 5;
+    } else {
+        isActive.value[0] = true;
+        currentOption.value = 0;
+    }
     const projectsCollection = await getDocs(collection(db, 'projects'));
     projectsCollection.forEach((project) => {
         const projectData = project.data();
@@ -49,12 +74,16 @@ function showProjectOption(params: number) {
     if (params === 0) {
         return projects.value;
     }
-    if (params === 7) {
+    if (params === 4) {
         return projects.value.filter((item) => {
             return item.is360 === is360.value;
         })
     }
-
+    if (params === 5) {
+        return projects.value.filter((item) => {
+            return item.isAnimation === isAnimation.value;
+        })
+    }
     // Type Project
     else if (params >= 1 && params < 4) {
         return projects.value.filter((item) => {
@@ -94,22 +123,12 @@ function activeHandle(optionNumber: number) {
         case 4:
             isActive.value[4] = true;
             isActive.value[currentOption.value] = false;
-            projectSize.value = 'small';
+            is360.value = true;
             break;
         case 5:
             isActive.value[5] = true;
             isActive.value[currentOption.value] = false;
-            projectSize.value = 'medium';
-            break;
-        case 6:
-            isActive.value[6] = true;
-            isActive.value[currentOption.value] = false;
-            projectSize.value = 'large';
-            break;
-        case 7:
-            isActive.value[7] = true;
-            isActive.value[currentOption.value] = false;
-            is360.value = true;
+            isAnimation.value = true;
             break;
     }
     currentOption.value = optionNumber;
@@ -124,8 +143,6 @@ function activeHandle(optionNumber: number) {
                 <div class="flex flex-col items-center">
                     <h1 class="2xl:text-6xl lg:text-5xl sm:text-4xl text-2xl text-center sofia-medium ">Our
                         Projects</h1>
-                    <!-- <p class="uppercase text-center sofia-pro sm:text-15 text-[13px] tracking-widest">
-                        Design Matters: Exploring the Impact of Architecture on Our Lives</p> -->
                     <ul
                         class="flex flex-wrap 2xl:gap-x-12 gap-x-10 gap-y-2 justify-center 2xl:text-2xl lg:text-xl md:text-lg text-sm lg:mt-12 mt-8 uppercase text-zinc-500">
                         <li @click="activeHandle(0)" :class="{ 'activeOption': isActive[0] }"
@@ -137,11 +154,11 @@ function activeHandle(optionNumber: number) {
                             class="hover:text-black transition-colors duration-500 cursor-pointer">Exterior</li>
                         <li @click="activeHandle(3)" :class="{ 'activeOption': isActive[3] }"
                             class="hover:text-black transition-colors duration-500 cursor-pointer">Interior</li>
-                        <li @click="activeHandle(7)" :class="{ 'activeOption': isActive[7] }"
+                        <li @click="activeHandle(4)" :class="{ 'activeOption': isActive[4] }"
                             class="hover:text-black transition-colors duration-500 cursor-pointer">
                             360°
                         </li>
-                        <li @click="activeHandle(7)" :class="{ 'activeOption': isActive[7] }"
+                        <li @click="activeHandle(5)" :class="{ 'activeOption': isActive[5] }"
                             class="hover:text-black transition-colors duration-500 cursor-pointer">
                             Animation
                         </li>
@@ -163,7 +180,7 @@ function activeHandle(optionNumber: number) {
                                             <Icon icon="mdi:dot" width="1em" height="1em" style="color: white" />
                                         </div>
                                         <p class="xl:text-15 text-[12px] mx-2">Year: {{ image.year
-                                            }}</p>
+                                        }}</p>
                                         <div class="flex items-center">
                                             <Icon icon="mdi:dot" width="1em" height="1em" style="color: white" />
                                         </div>

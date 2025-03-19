@@ -67,10 +67,12 @@ onMounted(() => {
                                             Exterior
                                             Rendering
                                         </p>
-                                        <div
-                                            class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
-                                            <p class=" uppercase text-[10px] font-heading text-white">See More</p>
-                                        </div>
+                                        <router-link :to="{ name: 'project-types', params: { type: 'exterior' } }">
+                                            <div
+                                                class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
+                                                <p class=" uppercase text-[10px] font-heading text-white">See More</p>
+                                            </div>
+                                        </router-link>
                                     </div>
                                 </div>
                             </div>
@@ -92,10 +94,12 @@ onMounted(() => {
                                             Interior
                                             Rendering
                                         </p>
-                                        <div
-                                            class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
-                                            <p class=" uppercase text-[10px] font-heading text-white">See More</p>
-                                        </div>
+                                        <router-link :to="{ name: 'project-types', params: { type: 'interior' } }">
+                                            <div
+                                                class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
+                                                <p class=" uppercase text-[10px] font-heading text-white">See More</p>
+                                            </div>
+                                        </router-link>
                                     </div>
                                 </div>
                             </div>
@@ -121,19 +125,16 @@ onMounted(() => {
                                             360°
                                             Rendering
                                         </p>
-                                        <div
-                                            class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
-                                            <p class=" uppercase text-[10px] font-heading text-white">See More</p>
-                                        </div>
+                                        <router-link :to="{ name: 'project-types', params: { type: '360' } }">
+                                            <div
+                                                class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
+                                                <p class=" uppercase text-[10px] font-heading text-white">See More</p>
+                                            </div>
+                                        </router-link>
                                     </div>
                                 </div>
                             </div>
-                            <!-- <button class="" ref="button">
-                                <i class="fa-solid fa-link"></i>
-                            </button> -->
                         </div>
-                        <!--  -->
-
                     </div>
                     <div class="flex  flex-col items-center gap-6">
                         <div class="rounded-lg w-full h-96 overflow-hidden service-box relative">
@@ -149,10 +150,12 @@ onMounted(() => {
                                         <p class="service-text text-xl uppercase text-white mb-2">
                                             Animation
                                         </p>
-                                        <div
-                                            class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
-                                            <p class=" uppercase text-[10px] font-heading text-white">See More</p>
-                                        </div>
+                                        <router-link :to="{ name: 'project-types', params: { type: 'animation' } }">
+                                            <div
+                                                class="btn px-5 py-1 rounded opacity-80 hover:opacity-100 transition-opacity">
+                                                <p class=" uppercase text-[10px] font-heading text-white">See More</p>
+                                            </div>
+                                        </router-link>
                                     </div>
                                 </div>
                             </div>
