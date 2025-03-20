@@ -24,6 +24,12 @@ const projectDetails = reactive({
     link360: '',
     images: <string[]>([]),
 });
+const infomation = reactive({
+    email: '',
+    facebookLink: '',
+    instagramLink: '',
+    whatsappLink: '',
+})
 const router = useRouter();
 const props = defineProps({
     id: String
@@ -33,6 +39,7 @@ const isExistsProject = ref(false);
 function goBack() {
     router.back();
 }
+
 onMounted(async () => {
     const q = query(collection(db, "projects"));
     const querySnapshot = await getDocs(q);
@@ -58,9 +65,17 @@ onMounted(async () => {
             })
         }
     })
+    const getInformation = await getDocs(collection(db, 'contacts'));
+    getInformation.forEach((item) => {
+        infomation.email = item.data().email;
+        infomation.facebookLink = item.data().facebook;
+        infomation.instagramLink = item.data().instagram;
+        infomation.whatsappLink = item.data().whatsapp;
+    })
     if (isExistsProject.value == false) {
         router.push("/404")
     }
+
     onTop('instant');
 })
 
@@ -95,12 +110,18 @@ function getUrl() {
                 </div>
             </div>
             <ul class="flex gap-6 text-2xl pt-8 pb-6">
-                <Icon class="hoverable cursor-pointer hover:text-blue-600 transition-all" icon="ic:baseline-facebook"
-                    width="1em" height="1em" />
-                <Icon class="hoverable cursor-pointer hover:text-green-600 transition-all" icon="ic:baseline-whatsapp"
-                    width="1em" height="1em" />
-                <Icon class="hoverable cursor-pointer hover:text-pink-600 transition-all" icon="dashicons:instagram"
-                    width="1em" height="1em" />
+                <a :href="infomation.facebookLink" target="_blank">
+                    <Icon class="hoverable cursor-pointer hover:text-blue-600 transition-all"
+                        icon="ic:baseline-facebook" width="1.2em" height="1.2em" />
+                </a>
+                <a :href="infomation.facebookLink" target="_blank">
+                    <Icon class="hoverable cursor-pointer hover:text-green-600 transition-all"
+                        icon="ic:baseline-whatsapp" width="1.2em" height="1.2em" />
+                </a>
+                <a :href="infomation.facebookLink" target="_blank">
+                    <Icon class="hoverable cursor-pointer hover:text-pink-600 transition-all" icon="dashicons:instagram"
+                        width="1.2em" height="1.2em" />
+                </a>
                 <div class="flex cursor-pointer relative copyLink">
                     <i @click="getUrl()" class="text-sm fa-solid fa-link"></i>
                     <div
