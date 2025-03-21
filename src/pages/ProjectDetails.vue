@@ -83,8 +83,7 @@ function getUrl() {
     const url = window.location.href;
     navigator.clipboard.writeText(url)
     return url;
-}
-
+}                                                    
 </script>
 
 <template>

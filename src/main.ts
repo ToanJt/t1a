@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import "./style.css";
+// import "./style.css";
 import "../text-particles.js";
 import { router } from "./router.ts";
 import "splitting/dist/splitting.css";
