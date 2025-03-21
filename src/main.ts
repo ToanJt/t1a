@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import "../text-particles.js";
+import "./threejs/text-particles.js";
 import { router } from "./router.ts";
 
 import App from "./App.vue";
