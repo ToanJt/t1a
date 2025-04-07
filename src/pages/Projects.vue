@@ -31,25 +31,25 @@ function validateEmail(email: string) {
 
 
 async function handleSubmit() {
-    isValidEmail.value = validateEmail(email.value)
-    if (email.value == "") {
-        isValidEmail.value = false;
-    }
-    else {
-        const customerEmail = {
-            email: email.value
-        }
-        try {
-            isSentSuccessfully.value = true;
-            const customerDoc = doc(collection(db, "customers/"));
-            await setDoc(customerDoc, customerEmail);
-        } catch (error) {
-            console.log("Failed send Email!! " + error);
-        }
+    // Validate email
+    isValidEmail.value = email.value ? validateEmail(email.value) : false;
 
+    if (!isValidEmail.value) return; // Exit if email is invalid
+    const customerEmail = {
+        email: email.value.trim(),
+        isRead: false,
+        createAt: new Date()
     }
+
+    try {
+        isSentSuccessfully.value = true;
+        const customerDoc = doc(collection(db, "customers"));
+        await setDoc(customerDoc, customerEmail);
+    } catch (error) {
+        console.log("Failed send Email!! " + error);
+    }
+
 }
-
 
 onMounted(async () => {
     if (route.params.type) {
@@ -211,7 +211,7 @@ function activeHandle(optionNumber: number) {
                                             <Icon icon="mdi:dot" width="1em" height="1em" style="color: white" />
                                         </div>
                                         <p class="xl:text-15 text-[12px] mx-2">Year: {{ image.year
-                                            }}</p>
+                                        }}</p>
                                         <div class="flex items-center">
                                             <Icon icon="mdi:dot" width="1em" height="1em" style="color: white" />
                                         </div>
