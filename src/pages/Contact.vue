@@ -24,18 +24,20 @@ const form = reactive({
 
 async function submitForm() {
     try {
-        const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbxIua7f2BG19KiBzIuedz-crs1f_IgJ9_8gA1c67z-8JwR-uqmo0eorK7jWp39n2BC3/exec",
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbz11i_ldvOyb7DSCFUlZt4aBdU10dna8T7rHMjDEyjTqi7IdDspXc0gQ7kSTikRqJhU/exec" + '?t=' + Date.now();
+        const response = await fetch(scriptUrl,
             {
-                method: "POST",
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(form),
-                headers: { "Content-Type": "application/json" }
+                credentials: 'omit'
             }
         );
-        const result = await response.json();
-        if (result.status === "success") {
-            alert("Gửi thành công!");
-        }
+        const result = await response.text();
+        console.log(JSON.parse(result));
+        alert("Gửi thành công!");
     } catch (error: any) {
         alert("Lỗi: " + error.message);
     }
