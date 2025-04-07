@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, reactive } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import { Icon } from "@iconify/vue"
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebaseConfig'
@@ -19,27 +19,33 @@ const form = reactive({
     name: "",
     email: "",
     subject: "",
-    messsage: "",
+    message: "",
 })
+
+const isSuccess = ref(false)
+
+function clearFormData() {
+    form.name = form.email = form.subject = form.message = "";
+}
 
 async function submitForm() {
     try {
-        const scriptUrl = "https://script.google.com/macros/s/AKfycbz11i_ldvOyb7DSCFUlZt4aBdU10dna8T7rHMjDEyjTqi7IdDspXc0gQ7kSTikRqJhU/exec" + '?t=' + Date.now();
-        const response = await fetch(scriptUrl,
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbxGPR9rMwm2vjRYM6niuZ7AivuvQc0ja7UDJkZjGxRNBBS0-fT9rgGFnM6Itdk35J10/exec" + '?t=' + Date.now();
+        await fetch(scriptUrl,
             {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(form),
-                credentials: 'omit'
-            }
+                credentials: 'omit',
+                mode: 'no-cors'
+            },
         );
-        const result = await response.text();
-        console.log(JSON.parse(result));
-        alert("Gửi thành công!");
+        isSuccess.value = true;
+        clearFormData();
     } catch (error: any) {
-        alert("Lỗi: " + error.message);
+        console.log("Lỗi: " + error.message);
     }
 }
 
@@ -147,15 +153,18 @@ onMounted(async () => {
                                     class="lg:text-base text-sm pl-4 pr-2 h-12 outline-none bg-[#FAF6F3]" type="text"
                                     id="subject">
                             </div>
-                            <div class=" flex flex-col mb-8">
-                                <label class="lg:text-base text-sm mb-2 text-black" for="messenge">Leave us a
+                            <div class=" flex flex-col mb-2">
+                                <label class="lg:text-base text-sm mb-2 text-black" for="message">Leave us a
                                     Message</label>
-                                <textarea v-model="form.messsage" placeholder="Please type your message here..."
-                                    required class="lg:text-base text-sm pl-4 pr-2 py-3 outline-none bg-[#FAF6F3]"
-                                    name="messenge" id="messenge" rows="5" cols="15"></textarea>
+                                <textarea v-model="form.message" placeholder="Please type your message here..." required
+                                    class="lg:text-base text-sm pl-4 pr-2 py-3 outline-none bg-[#FAF6F3]" name="message"
+                                    id="message" rows="5" cols="15"></textarea>
                             </div>
+                            <p v-if="isSuccess" class=" text-blue-500">Thank you for your message, we will respond as
+                                soon as
+                                possible.</p>
                             <button type="submit"
-                                class="bg-black lg:text-base text-sm hover:scale-[0.9] text-white transition-all duration-500 border-black border-solid border-[1px] sofia-pro px-4 py-3 w-40">Send
+                                class="mt-8 bg-black lg:text-base text-sm hover:scale-[0.9] text-white transition-all duration-500 border-black border-solid border-[1px] sofia-pro px-4 py-3 w-40">Send
                                 Message</button>
                         </form>
                     </div>

@@ -31,8 +31,9 @@ onMounted(() => {
 }
 
 .loader::before {
-    content: "Loading...";
+    content: "LTR...";
     color: #0000;
+    font-size: 3rem;
     padding: 0 5px;
     background: inherit;
     background-image: linear-gradient(90deg, #fff 50%, #000 0);
