@@ -115,7 +115,7 @@ onMounted(async () => {
                         Let Us Make It Happen!</h1>
                     <p class="uppercase sofia-pro sm:text-15 text-[13px] tracking-widest mb-8">
                         Contact Us Via</p>
-                    <div class="flex sm:flex-row flex-col items-center justify-center lg:gap-40 sm:gap-12 gap-5 w-full">
+                    <div class="flex sm:flex-row flex-col items-center justify-center lg:gap-40 sm:gap-8 gap-5 w-full">
                         <div class="flex flex-col items-center">
                             <p class="sofia-light-italic mb-1 lg:text-base text-sm">Trung Le - Founder</p>
                             <p class="lg:text-19 text-base text-blue-800">{{ contact.emailAddress }}</p>

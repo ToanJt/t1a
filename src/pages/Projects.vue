@@ -5,7 +5,7 @@ import slugify from 'slugify';
 import { onTop, createGalleries, convertToImageData } from '../functions/functions';
 import type { ImageData } from '../functions/interface';
 import { db } from '../firebaseConfig'
-import { getDocs, collection, DocumentData } from 'firebase/firestore';
+import { getDocs, collection, DocumentData, doc, setDoc } from 'firebase/firestore';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
@@ -18,6 +18,37 @@ const projectSize = ref<string>('');
 const is360 = ref<boolean>();
 const isAnimation = ref<boolean>();
 
+
+const email = ref("")
+const isValidEmail = ref(true)
+const isSentSuccessfully = ref(false)
+
+
+function validateEmail(email: string) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+
+async function handleSubmit() {
+    isValidEmail.value = validateEmail(email.value)
+    if (email.value == "") {
+        isValidEmail.value = false;
+    }
+    else {
+        const customerEmail = {
+            email: email.value
+        }
+        try {
+            isSentSuccessfully.value = true;
+            const customerDoc = doc(collection(db, "customers/"));
+            await setDoc(customerDoc, customerEmail);
+        } catch (error) {
+            console.log("Failed send Email!! " + error);
+        }
+
+    }
+}
 
 
 onMounted(async () => {
@@ -180,7 +211,7 @@ function activeHandle(optionNumber: number) {
                                             <Icon icon="mdi:dot" width="1em" height="1em" style="color: white" />
                                         </div>
                                         <p class="xl:text-15 text-[12px] mx-2">Year: {{ image.year
-                                        }}</p>
+                                            }}</p>
                                         <div class="flex items-center">
                                             <Icon icon="mdi:dot" width="1em" height="1em" style="color: white" />
                                         </div>
@@ -203,15 +234,26 @@ function activeHandle(optionNumber: number) {
                                 class="uppercase lg:mr-4 mr-0 text-left sofia-pro sm:text-15 text-[13px] tracking-widest lg:pb-0 pb-5">
                                 Leave Your Email And We'll Contact Your Right Away.</p>
                         </div>
-                        <div class=" flex lg:mr-4 mr-0">
-                            <input
-                                class="bg-white lg:text-[1rem] text-sm 2xl:w-80 w-full md:px-4 px-3 outline-none text-black"
-                                placeholder="Your Email Address" type="email">
-                            <div class="sm:p-2 p-1 bg-white">
-                                <button
-                                    class="bg-main-color lg:text-[1rem] sm:text-sm text-[12px] hover:scale-[0.9] text-white transition-all duration-500 sofia-pro uppercase md:px-4 px-2 md:py-3 py-2 md:w-40 w-32">Send
-                                    For Us</button>
-                            </div>
+                        <div class=" lg:mr-4 mr-0">
+                            <form @submit.prevent="handleSubmit()" class=" flex ">
+                                <input v-model="email"
+                                    class="bg-white lg:text-[1rem] text-sm w-80 md:px-4 px-3 outline-none text-black"
+                                    placeholder="Your Email Address" type="email">
+
+                                <div class="sm:p-2 p-1 bg-white">
+                                    <button type="submit"
+                                        class="bg-main-color lg:text-[1rem] text-sm hover:scale-[0.9] text-white transition-all duration-500 border-main-color border-solid border-[1px] sofia-pro uppercase md:px-4 px-2 py-3 md:w-40 w-32">Send
+                                        For Us</button>
+                                </div>
+
+                            </form>
+                            <p class="mt-2 text-sm text-blue-500" v-if="isSentSuccessfully && isValidEmail">🤝"Email
+                                sent!
+                                We look forward to working with you soon."
+                            </p>
+                            <p class="mt-2 text-sm text-red-500" v-if="!isValidEmail">Please enter a valid
+                                Email address</p>
+
                         </div>
                     </div>
                 </div>
@@ -221,6 +263,14 @@ function activeHandle(optionNumber: number) {
 </template>
 
 <style scoped>
+.error {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+}
+
 .card-project:hover {
     transform: translateY(-8px);
 }
