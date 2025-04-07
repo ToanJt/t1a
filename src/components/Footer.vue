@@ -2,9 +2,9 @@
 import TextParticles from '../threejs/TextParticles.vue';
 import Typed from 'typed.js';
 import { Icon } from '@iconify/vue'
-import { onMounted, reactive } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import { onTop } from '../functions/functions';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 
 const infomation = reactive({
@@ -13,6 +13,37 @@ const infomation = reactive({
     instagramLink: '',
     whatsappLink: '',
 })
+
+const email = ref("")
+const isValidEmail = ref(true)
+const isSentSuccessfully = ref(false)
+
+
+function validateEmail(email: string) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+
+async function handleSubmit() {
+    isValidEmail.value = validateEmail(email.value)
+    if (email.value == "") {
+        isValidEmail.value = false;
+    }
+    else {
+        const customerEmail = {
+            email: email.value
+        }
+        try {
+            isSentSuccessfully.value = true;
+            const customerDoc = doc(collection(db, "customers/"));
+            await setDoc(customerDoc, customerEmail);
+        } catch (error) {
+            console.log("Failed send Email!! " + error);
+        }
+
+    }
+}
 
 onMounted(async () => {
     new Typed('.auto-type', {
@@ -94,15 +125,24 @@ onMounted(async () => {
                 <div class="grid lg:grid-cols-5 grid-cols-1 lg:gap-40 gap-6 lg:mt-20 md:mt-10 mt-6">
                     <div class=" col-span-3 sofia-light">
                         <p class="md:mb-4 mb-2 sofia-pro">Send for Us</p>
-                        <div class=" flex lg:mb-8 md:mb-5 mb-2">
-                            <input class="bg-white lg:text-[1rem] text-sm w-80 md:px-4 px-3 outline-none text-black"
+                        <form @submit.prevent="handleSubmit()" class=" flex mb-2">
+                            <input v-model="email"
+                                class="bg-white lg:text-[1rem] text-sm w-80 md:px-4 px-3 outline-none text-black"
                                 placeholder="Your Email Address" type="email">
+
                             <div class="sm:p-2 p-1 bg-white">
-                                <button
+                                <button type="submit"
                                     class="bg-main-color lg:text-[1rem] text-sm hover:scale-[0.9] text-white transition-all duration-500 border-main-color border-solid border-[1px] sofia-pro uppercase md:px-4 px-2 py-3 md:w-40 w-32">Send
                                     For Us</button>
                             </div>
-                        </div>
+
+                        </form>
+                        <p class="mb-2 text-sm text-blue-500" v-if="isSentSuccessfully && isValidEmail">🤝"Email sent!
+                            We look forward to working with you soon."
+                        </p>
+                        <p class="mb-2 text-sm text-red-500" v-if="!isValidEmail">Please enter a valid
+                            Email address</p>
+
                         <p class="text-sm sm:block hidden text-light-dark ">Start your project today. Just leave your
                             email, and we'll contact you promptly.</p>
                     </div>
@@ -152,3 +192,14 @@ onMounted(async () => {
         </section>
     </div>
 </template>
+
+
+<style>
+.error {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+}
+</style>

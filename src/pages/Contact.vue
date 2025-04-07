@@ -15,6 +15,32 @@ const contact = reactive({
     phone: '',
 })
 
+const form = reactive({
+    name: "",
+    email: "",
+    subject: "",
+    messsage: "",
+})
+
+async function submitForm() {
+    try {
+        const response = await fetch(
+            "https://script.google.com/macros/s/AKfycbxIua7f2BG19KiBzIuedz-crs1f_IgJ9_8gA1c67z-8JwR-uqmo0eorK7jWp39n2BC3/exec",
+            {
+                method: "POST",
+                body: JSON.stringify(form),
+                headers: { "Content-Type": "application/json" }
+            }
+        );
+        const result = await response.json();
+        if (result.status === "success") {
+            alert("Gửi thành công!");
+        }
+    } catch (error: any) {
+        alert("Lỗi: " + error.message);
+    }
+}
+
 onMounted(async () => {
     const contactLinks = await getDocs(collection(db, 'contacts'));
     contactLinks.forEach((item) => {
@@ -100,33 +126,33 @@ onMounted(async () => {
                 <div class="container mx-auto">
                     <div
                         class="formBox 2xl:mx-80 lg:mx-52 sm:mx-20 mx-0 md:px-12 sm:px-8 px-6 md:py-12 sm:py-8 py-6 bg-white border border-solid sm:mt-20 mt-12">
-                        <form action="">
+                        <form @submit.prevent="submitForm" action="">
                             <div class=" flex flex-col mb-8">
                                 <label class="lg:text-base text-sm mb-2 text-black" for="username">Your Name</label>
-                                <input placeholder="Full Name"
+                                <input v-model="form.name" placeholder="Full Name" required
                                     class="lg:text-base text-sm pl-4 pr-2 h-12 outline-none bg-[#FAF6F3]" type="text"
                                     id="username">
                             </div>
                             <div class=" flex flex-col mb-8">
                                 <label class="lg:text-base text-sm mb-2 text-black" for="email">Your Email</label>
-                                <input placeholder="Enter your email"
+                                <input v-model="form.email" placeholder="Enter your email" required
                                     class="lg:text-base text-sm pl-4 pr-2 h-12 outline-none bg-[#FAF6F3]" type="email"
                                     id="email">
                             </div>
                             <div class=" flex flex-col mb-8">
-                                <label class="lg:text-base text-sm mb-2 text-black" for="email">Subject</label>
-                                <input placeholder="Enter your email"
-                                    class="lg:text-base text-sm pl-4 pr-2 h-12 outline-none bg-[#FAF6F3]" type="email"
-                                    id="email">
+                                <label class="lg:text-base text-sm mb-2 text-black" for="subject">Subject</label>
+                                <input v-model="form.subject" placeholder="Enter subject" required
+                                    class="lg:text-base text-sm pl-4 pr-2 h-12 outline-none bg-[#FAF6F3]" type="text"
+                                    id="subject">
                             </div>
                             <div class=" flex flex-col mb-8">
                                 <label class="lg:text-base text-sm mb-2 text-black" for="messenge">Leave us a
                                     Message</label>
-                                <textarea placeholder="Please type your message here..."
-                                    class="lg:text-base text-sm pl-4 pr-2 py-3 outline-none bg-[#FAF6F3]"
+                                <textarea v-model="form.messsage" placeholder="Please type your message here..."
+                                    required class="lg:text-base text-sm pl-4 pr-2 py-3 outline-none bg-[#FAF6F3]"
                                     name="messenge" id="messenge" rows="5" cols="15"></textarea>
                             </div>
-                            <button
+                            <button type="submit"
                                 class="bg-black lg:text-base text-sm hover:scale-[0.9] text-white transition-all duration-500 border-black border-solid border-[1px] sofia-pro px-4 py-3 w-40">Send
                                 Message</button>
                         </form>
